@@ -8,12 +8,12 @@
 		</ion-refresher>
 		<div class="card">
 			<div class="item item-text-wrap">
-				Wind: {{weather.wind.speed}} m/s, {{weather.wind.deg}} graden
+				Wind: {{weather.wind.speed | number}} m/s, {{weather.wind.deg | number}} graden
 			</div>
 		</div>
 		<div class="card">
 			<div class="item item-text-wrap">
-				Temperatuur: {{weather.main.temp}} K / {{weather.main.temp - 273.15}} gr. Celsius
+				Temperatuur: {{weather.main.temp | number:2}} K / {{weather.main.temp - 273.15 | number:2}} °C
 			</div>
 		</div>	
 		<div>

@@ -12,6 +12,7 @@ angular.module('starter.controllers', [])
 		$scope.refreshWeather = function() {
 			Locations.getWeather($scope.location.name).then(function(weather) {
 				$scope.weather = weather;
+				
 				var now = new Date();
 				$scope.lastRefresh = "Laatste update: " + now.toTimeString();
 				//Stop the ion-refresher from spinning
