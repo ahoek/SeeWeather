@@ -2,9 +2,22 @@
 -->
 <ion-view title="{{location.name}}">
 	<ion-content has-header="true" padding="true">
-<br/>
-<br/>
-		Wind: {{weather.wind.speed}} m/s, {{weather.wind.deg}} graden<br/>
-		Temperatuur: {{weather.main.temp}} K / {{weather.main.temp - 273.15}} gr. Celsius
+		<ion-refresher
+			
+			on-refresh="refreshWeather()">
+		</ion-refresher>
+		<div class="card">
+			<div class="item item-text-wrap">
+				Wind: {{weather.wind.speed}} m/s, {{weather.wind.deg}} graden
+			</div>
+		</div>
+		<div class="card">
+			<div class="item item-text-wrap">
+				Temperatuur: {{weather.main.temp}} K / {{weather.main.temp - 273.15}} gr. Celsius
+			</div>
+		</div>	
+		<div>
+			{{lastRefresh}}
+		</div>
 	</ion-content>
 </ion-view>

@@ -6,10 +6,12 @@ angular.module('starter.services', [])
 	.factory('Locations', function($q, $http) {
 		// Location placeholder, @todo get from local storage
 		var locations = [
-			{id: 0, name: 'Wassenaar, nl' },
-			{id: 1, name: 'Den Haag, nl' },
-			{id: 2, name: 'Voorschoten, nl' },
-			{id: 3, name: 'Rotterdam, nl' }
+			{id: 0, name: 'Wassenaar, nl'},
+			{id: 1, name: 'Den Haag, nl'},
+			{id: 2, name: 'Voorschoten, nl'},
+			{id: 3, name: 'Rotterdam, nl'},
+			{id: 4, name: 'Paris, fr'},
+			{id: 5, name: 'New York, us'}
 		];
 
 		return {
@@ -26,21 +28,22 @@ angular.module('starter.services', [])
 				var openWeatherUrl = "http://api.openweathermap.org/data/2.5/weather";
 
 				$http({
-					method: 'GET', 
-					url: openWeatherUrl, 
+					method: 'GET',
+					url: openWeatherUrl,
 					params: {
 						APPID: "***REMOVED***",
-						q: name						
+						q: name
 					}}).
 					success(function(data, status, headers, config) {
-					  deferred.resolve(data);
+						//console.log(data);
+						deferred.resolve(data);
 					}).
 					error(function(data, status, headers, config) {
 						console.log('jammer maar helaas');
 					});
-		
-                return deferred.promise;
-				
+
+				return deferred.promise;
+
 			}
 		}
 	});
