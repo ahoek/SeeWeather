@@ -18,42 +18,21 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 	.config(function($stateProvider, $urlRouterProvider) {
 
-		// Ionic uses AngularUI Router which uses the concept of states
-		// Learn more here: https://github.com/angular-ui/ui-router
-		// Set up the various states which the app can be in.
-		// Each state's controller can be found in controllers.js
 		$stateProvider
 
-			// setup an abstract state for the tabs directive
-			.state('tab', {
-				url: "/tab",
-				abstract: true,
-				templateUrl: "templates/tabs.html"
+			.state('locations', {
+				url: '/locations',
+				templateUrl: 'templates/locations.html',
+				controller: 'LocationsController'
 			})
-
-			// Each tab has its own nav history stack:
-
-			.state('tab.friends', {
-				url: '/friends',
-				views: {
-					'tab-friends': {
-						templateUrl: 'templates/tab-friends.html',
-						controller: 'FriendsCtrl'
-					}
-				}
-			})
-			.state('tab.friend-detail', {
-				url: '/friend/:friendId',
-				views: {
-					'tab-friends': {
-						templateUrl: 'templates/friend-detail.html',
-						controller: 'FriendDetailCtrl'
-					}
-				}
+			.state('location', {
+				url: '/location/:locationId',
+				templateUrl: 'templates/location.html',
+				controller: 'LocationController'
 			})
 
 		// if none of the above states are matched, use this as the fallback
-		$urlRouterProvider.otherwise('/tab/friends');
+		$urlRouterProvider.otherwise('/locations');
 
 	});
 

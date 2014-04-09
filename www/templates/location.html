@@ -1,0 +1,10 @@
+<!--
+-->
+<ion-view title="{{location.name}}">
+	<ion-content has-header="true" padding="true">
+<br/>
+<br/>
+		Wind: {{location.weather.wind.speed}} m/s, {{location.weather.wind.deg}} graden<br/>
+		Temperatuur: {{location.weather.main.temp}} K / {{location.weather.main.temp - 273.15}} gr. Celsius
+	</ion-content>
+</ion-view>

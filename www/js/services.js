@@ -3,7 +3,7 @@ angular.module('starter.services', [])
 	/**
 	 * A simple example service that returns some data.
 	 */
-	.factory('Friends', function() {
+	.factory('Locations', function() {
 		// Might use a resource here that returns a JSON array
 
 		// Location placeholder
@@ -41,7 +41,7 @@ angular.module('starter.services', [])
 //      // called asynchronously if an error occurs
 //      // or server returns response with an error status.
 //    });
-console.log(location);
+//console.log(location);
 				return location;
 			}
 		}
