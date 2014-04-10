@@ -13,6 +13,8 @@ angular.module('starter.services', [])
 			{id: 4, name: 'Paris, fr'},
 			{id: 5, name: 'New York, us'}
 		];
+		
+		var openWeatherBaseUrl = "http://api.openweathermap.org/data/2.5";
 
 		return {
 			all: function() {
@@ -25,8 +27,11 @@ angular.module('starter.services', [])
 			// Get the current weather
 			getWeather: function(name) {
 				var deferred = $q.defer();
-				var openWeatherUrl = "http://api.openweathermap.org/data/2.5/weather";
-
+				//var openWeatherUrl = openWeatherBaseUrl + "/weather";
+				//var openWeatherUrl = openWeatherBaseUrl + "/forecast/daily";
+				var openWeatherUrl = openWeatherBaseUrl + "/forecast";
+				
+			
 				$http({
 					method: 'GET',
 					url: openWeatherUrl,
@@ -35,7 +40,7 @@ angular.module('starter.services', [])
 						q: name
 					}}).
 					success(function(data, status, headers, config) {
-						//console.log(data);
+						console.log(data);
 						deferred.resolve(data);
 					}).
 					error(function(data, status, headers, config) {
