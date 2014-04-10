@@ -2,3 +2,10 @@
 .unit {
 	color: #aaa;
 }
+.sidemenu-content {
+	background-color: #666;
+}
+.sidemenu-item .item-content {
+	background: #999;
+	color: #fff;
+}

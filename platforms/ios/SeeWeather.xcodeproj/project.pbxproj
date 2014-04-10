@@ -41,6 +41,7 @@
 		0A0AB08303F74C419A8559CB /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C80807C87204130ABB8997D /* CDVLogger.m */; };
 		1E7E44DC1DD042D499BC13FE /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 03221F5504F54BF4AE4EE8B1 /* CDVDevice.m */; };
 		268A7083A5DA4471BCA1019B /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5633617EF546BC98E370FE /* CDVStatusBar.m */; };
+		35018D567577405DB6FE03A1 /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = CBDBFC665ABB42AA91F2D9D4 /* CDVLocation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,8 @@
 		33C33C93AEB14FDCA3EAAD49 /* CDVDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVDevice.h"; path = "org.apache.cordova.device/CDVDevice.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		CA5633617EF546BC98E370FE /* CDVStatusBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVStatusBar.m"; path = "org.apache.cordova.statusbar/CDVStatusBar.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		12076A9ED56845089081455C /* CDVStatusBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVStatusBar.h"; path = "org.apache.cordova.statusbar/CDVStatusBar.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		CBDBFC665ABB42AA91F2D9D4 /* CDVLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVLocation.m"; path = "org.apache.cordova.geolocation/CDVLocation.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		B19FFBFC6573420B964C4ADD /* CDVLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLocation.h"; path = "org.apache.cordova.geolocation/CDVLocation.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +240,8 @@
 				33C33C93AEB14FDCA3EAAD49 /* CDVDevice.h */,
 				CA5633617EF546BC98E370FE /* CDVStatusBar.m */,
 				12076A9ED56845089081455C /* CDVStatusBar.h */,
+				CBDBFC665ABB42AA91F2D9D4 /* CDVLocation.m */,
+				B19FFBFC6573420B964C4ADD /* CDVLocation.h */,
 			);
 			name = Plugins;
 			path = "SeeWeather/Plugins";
@@ -434,6 +439,7 @@
 				0A0AB08303F74C419A8559CB /* CDVLogger.m in Sources */,
 				1E7E44DC1DD042D499BC13FE /* CDVDevice.m in Sources */,
 				268A7083A5DA4471BCA1019B /* CDVStatusBar.m in Sources */,
+				35018D567577405DB6FE03A1 /* CDVLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

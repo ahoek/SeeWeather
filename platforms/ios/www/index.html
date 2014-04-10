@@ -23,14 +23,35 @@
 		<script src="cordova.js"></script>
 	</head>
 	<body ng-app="starter" animation="slide-left-right-ios7">
+	<ion-side-menus>
+		<ion-side-menu-content ng-controller="ContentController">
+			<ion-nav-bar class="bar-stable nav-title-slide-ios7">
+				<ion-nav-back-button class="button-icon icon ion-chevron-left">
+				</ion-nav-back-button>
 
-    <ion-nav-bar class="bar-stable nav-title-slide-ios7">
-		<ion-nav-back-button class="button-icon icon ion-chevron-left">
-			
-		</ion-nav-back-button>
-    </ion-nav-bar>
+				<ion-nav-buttons side="right">
+					<button ng-click="toggleRight()" class="button button-icon icon ion-navicon"></button>
+				</ion-nav-buttons>
+			</ion-nav-bar>
+			<ion-nav-view></ion-nav-view>
+		</ion-side-menu-content>
 
-    <ion-nav-view></ion-nav-view>
+		<ion-side-menu side="right" is-enabled="true">
+			<ion-header-bar class="bar bar-header bar-dark">
+				<h1 class="title">Instellingen</h1>
+			</ion-header-bar>
+			<ion-content has-header="true" class="sidemenu-content">
+				<ion-list>
+					<ion-item class="sidemenu-item">
+						een
+					</ion-item>
+					<ion-item class="sidemenu-item">
+						twee
+					</ion-item>
+				</ion-list>
+			</ion-content>
+		</ion-side-menu>		
+	</ion-side-menus>
 
 </body>
 </html>
