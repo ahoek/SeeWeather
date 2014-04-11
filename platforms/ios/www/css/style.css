@@ -1,5 +1,3 @@
-/* Empty. Add your own CSS if you like */
-
 
 .unit {
 	color: #aaa;
@@ -76,7 +74,6 @@
 /* -----Basethundercloud----- */
 .basethundercloud:before  {
 	font-family: 'iconvault';
-	/*font-size:6em;*/
 	content: '\f105';
 	position:absolute;
 	color:#000;
@@ -112,7 +109,6 @@
 	color:rgb(204, 204, 204);}
 
 /* -----Showers----- */
-
 .w-showers::before  {
 	content: "\f104";
 	position:absolute;
@@ -142,7 +138,6 @@
 }
 
 /* -----Windy----- */
-
 .w-windy::before  {
 	content: "\f115";
 	/*position:absolute;*/
@@ -150,7 +145,6 @@
 }
 
 /* -----WindyRain----- */
-
 .w-windyrain::before {
 	content: "\f10e";
 	/*position:absolute;*/
@@ -158,7 +152,6 @@
 }
 
 /* -----WindySnow----- */
-
 .w-windysnow::before {
 	content: "\f103";
 	/*position:absolute;*/
@@ -166,7 +159,6 @@
 }
 
 /* -----Sleet----- */
-
 .w-sleet::before  {
 	content: "\f10c";
 	/*position:absolute;*/
@@ -183,20 +175,18 @@
 }
 
 /* -----Night----- */
-
 .w-night::after {
 	content: "\f100";
-	/*position:absolute;*/
+	position:absolute;
 	color:rgb(255, 165, 0);
 }
 
 
 /* -----Sun----- */
-
 .w-sun::after, .w-01d::after {
 	content: "\f113";
 	color:rgb(255, 165, 0);
-	/*position: absolute;*/
+	position: absolute;
 }
 
 /* -----Cloud----- */
@@ -204,34 +194,29 @@
 .w-04d::after,
 .w-04n::after,
 .w-cloud::after {
-	font-family: 'iconvault';
 	content: "\f106";
 	color:rgb(204, 204, 204);
-	/*position: absolute;*/
+	position: absolute;
 }
 
-
 /* -----Sunrise----- */
-
 .w-sunrise:before  {
 	content: '\f112';
 	color:rgb(255, 165, 0);
-	/*position: absolute;*/
+	position: absolute;
 }
 
 /* -----Sunset----- */
-
 .w-sunset:before  {
 	content: '\f110';
 	color:#f96f23;
-	/*position: absolute;*/
+	position: absolute;
 }
 
 /* -----Mist----- */
-
 .w-mist:before  {
 	content: '\f108';
 	color:rgb(204, 204, 204);
-	/*position: absolute;*/
+	position: absolute;
 }
 
