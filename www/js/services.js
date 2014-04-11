@@ -36,19 +36,18 @@ angular.module('starter.services', [])
 			all: function() {
 				return locations;
 			},
+			
 			get: function(locationId) {
 				var location = locations[locationId];
 				return location;
 			},
+			
 			// Get the current weather
 			getWeather: function(name) {
-
 				var deferred = $q.defer();
 				//var openWeatherUrl = openWeatherBaseUrl + "/weather";
 				//var openWeatherUrl = openWeatherBaseUrl + "/forecast/daily";
 				var openWeatherUrl = openWeatherBaseUrl + "/forecast";
-
-
 				$http({
 					method: 'GET',
 					url: openWeatherUrl,
@@ -66,7 +65,6 @@ angular.module('starter.services', [])
 					});
 
 				return deferred.promise;
-
 			}
 		}
 	});
