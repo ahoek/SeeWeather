@@ -7,7 +7,8 @@
 		</ion-refresher>
 		<!-- forecast -->
 		<ion-list>
-			<ion-item ng-repeat="item in weather" style="position: relative;">
+			<ion-item ng-repeat="item in weather" style="position: relative;"
+					  >
 				<span style="position: absolute;left: 3px;font-size: 1.6em;line-height: 1em;vertical-align: middle">
 					<i class="w-{{item.weather[0].icon}}"></i>
 				</span>
@@ -18,12 +19,12 @@
 					{{item.dt * 1000| date:'short'}}
 				</span>
 				
-				<span style="width:3.5em;display: inline-block;text-align:right;">
-					{{item.main.temp - 273.15| number:1}}<span class="unit">°C</span>
+				<span style="width:3em;display: inline-block;text-align:right;">
+					{{item.main.temp - 273.15| number:0}}<span class="unit">°C</span>
 						
 				</span>
 				<span style="width:3.5em;display: inline-block;text-align:right;">
-					{{item.wind.speed| number:1 }}<span class="unit">m/s</span> 
+					{{item.wind.speed| number:0 }}<span class="unit">m/s</span> 
 				</span>
 				<!-- wind direction -->
 				<i class="ion-navigate" style="-webkit-transform: rotate({{item.wind.deg - 45 + 180}}deg);"></i>
