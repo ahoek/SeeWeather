@@ -6,32 +6,34 @@
 			on-refresh="refreshWeather()">
 		</ion-refresher>
 		<!-- forecast -->
-		<ion-list>
-			<ion-item ng-repeat="item in weather" style="position: relative;"
-					  >
+	<ion-list>
+			<div  ng-repeat-start="(day, weather) in forecastDays" class="item item-divider">
+				{{day|date:'fullDate'}}
+			</div>
+			<ion-item ng-repeat="item in weather" style="position: relative;">
+
 				<span style="position: absolute;left: 3px;font-size: 1.6em;line-height: 1em;vertical-align: middle">
 					<i class="w-{{item.weather[0].icon}}"></i>
 				</span>
 				<!--{{item.weather[0].icon}} {{item.weather}}-->
-				
-				&nbsp;&nbsp;&nbsp;&nbsp;
-				<span class="item-note">
-					{{item.dt * 1000| date:'short'}}
-				</span>
-				
-				<span style="width:3em;display: inline-block;text-align:right;">
+
+				<span style="width:4em;display: inline-block;text-align:right;">
 					{{item.main.temp - 273.15| number:0}}<span class="unit">°C</span>
-						
+
 				</span>
 				<span style="width:3.5em;display: inline-block;text-align:right;">
 					{{item.wind.speed| number:0 }}<span class="unit">m/s</span> 
 				</span>
 				<!-- wind direction -->
 				<i class="ion-navigate" style="-webkit-transform: rotate({{item.wind.deg - 45 + 180}}deg);"></i>
-				
+				<span class="item-note">
+					{{item.dt * 1000| date:'shortTime'}}
+				</span>
 			</ion-item>
-		</ion-list>	
-		
+			<div ng-repeat-end></div>
+		</ion-list>
+
+
 		<!-- Current weather -->
 		<!--
   
