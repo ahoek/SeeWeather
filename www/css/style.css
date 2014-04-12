@@ -24,9 +24,10 @@
 .list {
 	/*position: relative !important;*/
 }
+
 .item-divider {
-	position: sticky !important;
-	position: -webkit-sticky !important;
+	position: sticky;
+	position: -webkit-sticky;
 	/*top: 50px;*/
 }
 
@@ -38,16 +39,6 @@
 	text-decoration: inherit;
 	-webkit-font-smoothing: antialiased;
 	position: absolute;
-}
-
-@media only screen and (min-width: 479px) and (max-width: 678px){
-	[class^="w-"],
-	[class*=" w-"] {
-		font-family: 'iconvault';
-		font-weight: normal;
-		font-style: normal;
-		text-decoration: inherit;
-		-webkit-font-smoothing: antialiased;}
 }
 
 /* -----BaseCloud----- */

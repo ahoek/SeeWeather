@@ -1,15 +1,3 @@
-
-.unit {
-	color: #aaa;
-}
-.sidemenu-content {
-	background-color: #666;
-}
-.sidemenu-item .item-content {
-	background: #999;
-	color: #fff;
-}
-
 /* Weather font */
 @font-face {
 	font-family: "iconvault";
@@ -22,6 +10,27 @@
 	font-style: normal;
 }
 
+.unit {
+	color: #aaa;
+}
+.sidemenu-content {
+	background-color: #666;
+}
+.sidemenu-item .item-content {
+	background: #999;
+	color: #fff;
+}
+
+.list {
+	/*position: relative !important;*/
+}
+
+.item-divider {
+	position: sticky;
+	position: -webkit-sticky;
+	/*top: 50px;*/
+}
+
 [class^="w-"],
 [class*=" w-"] {
 	font-family: 'iconvault';
@@ -30,16 +39,6 @@
 	text-decoration: inherit;
 	-webkit-font-smoothing: antialiased;
 	position: absolute;
-}
-
-@media only screen and (min-width: 479px) and (max-width: 678px){
-	[class^="w-"],
-	[class*=" w-"] {
-		font-family: 'iconvault';
-		font-weight: normal;
-		font-style: normal;
-		text-decoration: inherit;
-		-webkit-font-smoothing: antialiased;}
 }
 
 /* -----BaseCloud----- */
