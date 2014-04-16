@@ -20,35 +20,40 @@ angular.module('starter.services', [])
 	 * Location weather service
 	 */
 	.factory('Locations', function($q, $http) {
-		// Location placeholder, @todo get from local storage
-		var locations = [
-			{id: 0, name: 'Wassenaar, nl'},
-			{id: 1, name: 'Den Haag, nl'},
-			{id: 2, name: 'Voorschoten, nl'},
-			{id: 3, name: 'Rotterdam, nl'},
-			{id: 4, name: 'Paris, fr'},
-			{id: 5, name: 'New York, us'}
-		];
-
 		var openWeatherBaseUrl = "http://api.openweathermap.org/data/2.5";
 
 		return {
 			all: function() {
-				return locations;
+				var locationsString = window.localStorage['locations'];
+				if (locationsString) {
+					return angular.fromJson(locationsString);
+				}
+				return [];
 			},
 			get: function(locationId) {
-				var location = locations[locationId];
-				return location;
-			},
-			// Get the current weather
-			getWeather: function(name) {
+				var locationsString = window.localStorage['locations'];
+				if (locationsString) {
+					return angular.fromJson(locationsString)[locationId];
+				}
 
+				return {};
+			},
+			save: function(locations) {
+				window.localStorage['locations'] = angular.toJson(locations);
+			},
+			// Todo verify location and store location identifier
+			newLocation: function(name) {
+				// Add a new location
+				return {
+					name: name
+				};
+			},
+			// Get the weather forecast
+			getWeather: function(name) {
 				var deferred = $q.defer();
 				//var openWeatherUrl = openWeatherBaseUrl + "/weather";
 				//var openWeatherUrl = openWeatherBaseUrl + "/forecast/daily";
 				var openWeatherUrl = openWeatherBaseUrl + "/forecast";
-
-
 				$http({
 					method: 'GET',
 					url: openWeatherUrl,
@@ -66,7 +71,6 @@ angular.module('starter.services', [])
 					});
 
 				return deferred.promise;
-
 			}
-		}
+		};
 	});

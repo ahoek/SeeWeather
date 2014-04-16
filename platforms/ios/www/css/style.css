@@ -196,7 +196,6 @@
 
 /* -----Moon----- */
 .w-01n::after,
-.w-02n::after,
 .w-moon::after {
 	content: "\f10d";
 	color:rgb(255, 165, 0);
@@ -204,6 +203,7 @@
 }
 
 /* -----Night----- */
+.w-02n::after,
 .w-10n::after,
 .w-night::after {
 	content: "\f100";
