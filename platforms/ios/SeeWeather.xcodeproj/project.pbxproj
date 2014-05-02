@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		16A4BC5898EB42F1AE12688C /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DA16478A04A842378F5F6CCA /* CDVStatusBar.m */; };
+		106B073D7B0A4CDD99D70FBF /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3275368323C14A538FA49507 /* CDVStatusBar.m */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1F766FE113BBADB100FB74C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F766FDC13BBADB100FB74C0 /* Localizable.strings */; };
@@ -39,10 +39,10 @@
 		7E7966E51810823500FA85AD /* icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DB1810823500FA85AD /* icon-76@2x.png */; };
 		7E7966E61810823500FA85AD /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DC1810823500FA85AD /* icon-small.png */; };
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
-		890EC497CA6B4E32941BEAB9 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B39387617F3493A890A5F7A /* CDVDevice.m */; };
-		8A2080A3486548C496AF7832 /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 8884479CBF1C4028BFB31CB8 /* CDVLogger.m */; };
+		9365805E03F443D7A13624E2 /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C1788E9A0B47F2BB675562 /* CDVLocation.m */; };
+		A15550DF00114D5DA228906E /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 63860C55DD2343BFAD89ADD2 /* CDVDevice.m */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
-		DF23795EB4914FF9AC0CAA16 /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B3D44DD99D49BEB851D6AD /* CDVLocation.m */; };
+		D6579088831B4EF5A759C18F /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = BB73006ED024414C930EADA7 /* CDVLogger.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,9 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		03B3D44DD99D49BEB851D6AD /* CDVLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVLocation.m; path = org.apache.cordova.geolocation/CDVLocation.m; sourceTree = "<group>"; };
-		097C8FA7A89742439708F3CD /* CDVLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVLocation.h; path = org.apache.cordova.geolocation/CDVLocation.h; sourceTree = "<group>"; };
-		1B39387617F3493A890A5F7A /* CDVDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVDevice.m; path = org.apache.cordova.device/CDVDevice.m; sourceTree = "<group>"; };
+		0D7670C18BAD4D5E92FDF2A1 /* CDVStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVStatusBar.h; path = org.apache.cordova.statusbar/CDVStatusBar.h; sourceTree = "<group>"; };
+		14C1788E9A0B47F2BB675562 /* CDVLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVLocation.m; path = org.apache.cordova.geolocation/CDVLocation.m; sourceTree = "<group>"; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* SeeWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeeWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,12 +90,11 @@
 		30A0434414DC770100060A13 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = Localizable.strings; sourceTree = "<group>"; };
 		30A0434714DC770100060A13 /* se */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = se; path = Localizable.strings; sourceTree = "<group>"; };
 		30FC414816E50CA1004E6F35 /* icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72@2x.png"; sourceTree = "<group>"; };
+		3275368323C14A538FA49507 /* CDVStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVStatusBar.m; path = org.apache.cordova.statusbar/CDVStatusBar.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* SeeWeather-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SeeWeather-Prefix.pch"; sourceTree = "<group>"; };
-		37D9E0184EC84CEAA8D8DAEC /* CDVDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVDevice.h; path = org.apache.cordova.device/CDVDevice.h; sourceTree = "<group>"; };
-		4264404E916B4803872057BA /* CDVStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVStatusBar.h; path = org.apache.cordova.statusbar/CDVStatusBar.h; sourceTree = "<group>"; };
-		4AA680056540412D9142863A /* CDVLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVLogger.h; path = org.apache.cordova.console/CDVLogger.h; sourceTree = "<group>"; };
 		5AEE5B34173C68D80009041E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		63860C55DD2343BFAD89ADD2 /* CDVDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVDevice.m; path = org.apache.cordova.device/CDVDevice.m; sourceTree = "<group>"; };
 		7E7966D41810823500FA85AD /* icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-40.png"; sourceTree = "<group>"; };
 		7E7966D51810823500FA85AD /* icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-40@2x.png"; sourceTree = "<group>"; };
 		7E7966D61810823500FA85AD /* icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-50.png"; sourceTree = "<group>"; };
@@ -107,10 +105,12 @@
 		7E7966DB1810823500FA85AD /* icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-76@2x.png"; sourceTree = "<group>"; };
 		7E7966DC1810823500FA85AD /* icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small.png"; sourceTree = "<group>"; };
 		7E7966DD1810823500FA85AD /* icon-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small@2x.png"; sourceTree = "<group>"; };
-		8884479CBF1C4028BFB31CB8 /* CDVLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVLogger.m; path = org.apache.cordova.console/CDVLogger.m; sourceTree = "<group>"; };
+		88977A1B981842949A74B8B5 /* CDVLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVLogger.h; path = org.apache.cordova.console/CDVLogger.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* SeeWeather-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SeeWeather-Info.plist"; path = "../SeeWeather-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		90B2A3B028EA4B6A86186257 /* CDVDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVDevice.h; path = org.apache.cordova.device/CDVDevice.h; sourceTree = "<group>"; };
+		BB73006ED024414C930EADA7 /* CDVLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVLogger.m; path = org.apache.cordova.console/CDVLogger.m; sourceTree = "<group>"; };
+		C2BA3CABB3BE49AD8436F4C5 /* CDVLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVLocation.h; path = org.apache.cordova.geolocation/CDVLocation.h; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
-		DA16478A04A842378F5F6CCA /* CDVStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVStatusBar.m; path = org.apache.cordova.statusbar/CDVStatusBar.m; sourceTree = "<group>"; };
 		EB87FDF21871DA7A0020F90C /* merges */ = {isa = PBXFileReference; lastKnownFileType = folder; name = merges; path = ../../merges; sourceTree = "<group>"; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
@@ -235,14 +235,14 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				8884479CBF1C4028BFB31CB8 /* CDVLogger.m */,
-				4AA680056540412D9142863A /* CDVLogger.h */,
-				1B39387617F3493A890A5F7A /* CDVDevice.m */,
-				37D9E0184EC84CEAA8D8DAEC /* CDVDevice.h */,
-				03B3D44DD99D49BEB851D6AD /* CDVLocation.m */,
-				097C8FA7A89742439708F3CD /* CDVLocation.h */,
-				DA16478A04A842378F5F6CCA /* CDVStatusBar.m */,
-				4264404E916B4803872057BA /* CDVStatusBar.h */,
+				BB73006ED024414C930EADA7 /* CDVLogger.m */,
+				88977A1B981842949A74B8B5 /* CDVLogger.h */,
+				63860C55DD2343BFAD89ADD2 /* CDVDevice.m */,
+				90B2A3B028EA4B6A86186257 /* CDVDevice.h */,
+				14C1788E9A0B47F2BB675562 /* CDVLocation.m */,
+				C2BA3CABB3BE49AD8436F4C5 /* CDVLocation.h */,
+				3275368323C14A538FA49507 /* CDVStatusBar.m */,
+				0D7670C18BAD4D5E92FDF2A1 /* CDVStatusBar.h */,
 			);
 			name = Plugins;
 			path = SeeWeather/Plugins;
@@ -437,10 +437,10 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				8A2080A3486548C496AF7832 /* CDVLogger.m in Sources */,
-				890EC497CA6B4E32941BEAB9 /* CDVDevice.m in Sources */,
-				DF23795EB4914FF9AC0CAA16 /* CDVLocation.m in Sources */,
-				16A4BC5898EB42F1AE12688C /* CDVStatusBar.m in Sources */,
+				D6579088831B4EF5A759C18F /* CDVLogger.m in Sources */,
+				A15550DF00114D5DA228906E /* CDVDevice.m in Sources */,
+				9365805E03F443D7A13624E2 /* CDVLocation.m in Sources */,
+				106B073D7B0A4CDD99D70FBF /* CDVStatusBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,7 +503,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "SeeWeather/SeeWeather-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					CoreFoundation,
@@ -534,7 +534,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "SeeWeather/SeeWeather-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					CoreFoundation,
