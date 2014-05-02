@@ -19,7 +19,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 	.config(function($stateProvider, $urlRouterProvider) {
 
 		$stateProvider
-
 			.state('locations', {
 				url: '/locations',
 				templateUrl: 'templates/locations.html',

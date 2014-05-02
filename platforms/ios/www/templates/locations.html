@@ -1,13 +1,15 @@
 <ion-view title="Plaatsen">
 	<ion-content class="has-header">
 		<ion-list>
-			<ion-item ng-repeat="(id, location) in locations" 
+			<a ng-repeat="(id, location) in locations" 
 					  type="item-text-wrap" 
 					  href="#/location/{{id}}"
 					  can-reorder="true"
-					  can-delete="true">
+					  can-delete="true"
+					   class="item item-icon-right">
 				{{location.name}}
-			</ion-item>
+				<i class="icon ion-chevron-right icon-accessory"></i>
+			</a>
 		</ion-list>
 	</ion-content>
 </ion-view>

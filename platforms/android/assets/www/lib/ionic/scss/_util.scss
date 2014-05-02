@@ -25,6 +25,7 @@
   visibility: hidden;
 }
 
+.keyboard-open,
 .footer-hide {
   .bar-footer,
   .tabs {
@@ -60,6 +61,10 @@
 
   -ms-touch-action: none;
   -ms-content-zooming: none;
+}
+
+.no-resize {
+  resize: none;
 }
 
 .block {
