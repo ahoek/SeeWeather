@@ -11,7 +11,8 @@
 				{{day|date:'fullDate'}}
 			</div>
 			<ion-item ng-repeat="item in weather">
-				<span style="position: absolute;left: 3px;font-size: 1.6em;line-height: 1em;vertical-align: middle">
+				<span class="weather-icon">
+					<i class="w-base-{{item.weather[0].icon}}"></i>
 					<i class="w-{{item.weather[0].icon}}"></i>
 				</span>
 				<!--{{item.weather[0].icon}} {{item.weather}}-->
@@ -28,7 +29,7 @@
 				</small>
 				<!--<span class="unit">m/s</span>--> 
 				<!-- wind direction -->
-				<i class="ion-navigate" style="-webkit-transform: rotate({{item.wind.deg - 45 + 180}}deg);"></i>
+				<i class="ion-navigate" style="-webkit-transform: rotate({{item.wind.deg - 45 + 180}}deg); margin-left: 0.5em;"></i>
 				<span class="item-note">
 					{{item.dt * 1000| date:'shortTime'}}
 				</span>
