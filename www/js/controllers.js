@@ -1,24 +1,33 @@
 angular.module('starter.controllers', [])
-	.controller('AppController', function($scope) {
-	})
-
-	// Side menu toggle button
-	.controller('ContentController', function($scope, $ionicSideMenuDelegate) {
-
-		$scope.toggleRight = function() {
-			$ionicSideMenuDelegate.toggleRight();
+	.controller('AppController', function($scope, $ionicSideMenuDelegate) {
+    $scope.toggleLeft = function() {
+			$ionicSideMenuDelegate.toggleLeft();
 		};
 	})
-  
-	.controller('MenuController', function($scope, Locations) {
 	
+	// Location overview
+	.controller('LocationsController', function($scope, Locations, $ionicSideMenuDelegate) {
+
+    // Define item buttons
+    $scope.itemButtons = [{
+      text: 'Verwijderen',
+      type: 'button-assertive',
+      onTap: function(item) {
+        $scope.removeLocation(item);
+      }
+    }];
+
+    //console.log($scope.itemButtons);
+    
+    $scope.locations = Locations.all();
+
 		// Helper function to add location
 		var createLocation = function(name) {
 			var newLocation = Locations.newLocation(name);
 			$scope.locations.push(newLocation);
 			Locations.save($scope.locations);
 		};
-		$scope.locations = Locations.all();
+    
 		// Called to create a new location
 		$scope.newLocation = function() {
 			var name = prompt('Voer de plaatsnaam in');
@@ -27,11 +36,11 @@ angular.module('starter.controllers', [])
 				//$scope.sideMenuController.close();
 			}
 		};
-	})
-	
-	// Location overview
-	.controller('LocationsController', function($scope, Locations) {
-		$scope.locations = Locations.all();
+    
+    $scope.removeLocation = function(index) {
+      $scope.locations.splice(index, 1);
+      Locations.save($scope.locations);
+    }
 	})
 
 	// Location forecast detail

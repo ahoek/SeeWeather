@@ -24,7 +24,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 			.state('app.locations', {
 				url: '/locations',
         views: {
-          'menuContent' :{
+          'menuContent': {
             templateUrl: 'templates/locations.html',
             controller: 'LocationsController'
           }
@@ -34,9 +34,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       .state('app.location', {
 				url: '/location/:locationId',
         views: {
-          'menuContent' :{
+          'menuContent': {
             templateUrl: 'templates/location.html',
             controller: 'LocationController'
+          },
+          'menuLeft': {
+            templateUrl: 'templates/locations.html',
+            controller: 'LocationsController'
           }
         }
 			})

@@ -17,7 +17,7 @@ angular.module('starter.services', [])
 		}
 	})
 	/**
-	 * Location weather service
+	 * Locations and weather services
 	 */
 	.factory('Locations', function($q, $http) {
 		var openWeatherBaseUrl = "http://api.openweathermap.org/data/2.5";
@@ -30,6 +30,7 @@ angular.module('starter.services', [])
 				}
 				return [];
 			},
+      
 			get: function(locationId) {
 				var locationsString = window.localStorage['locations'];
 				if (locationsString) {
@@ -38,9 +39,11 @@ angular.module('starter.services', [])
 
 				return {};
 			},
+      
 			save: function(locations) {
 				window.localStorage['locations'] = angular.toJson(locations);
 			},
+      
 			// Todo verify location and store location identifier
 			newLocation: function(name) {
 				// Add a new location
@@ -48,6 +51,18 @@ angular.module('starter.services', [])
 					name: name
 				};
 			},
+      
+      getLastActiveIndex: function() {
+        return parseInt(window.localStorage['lastActiveLocation']) || 0;
+      },
+      
+      setLastActiveIndex: function(index) {
+        window.localStorage['lastActiveLocation'] = index;
+      },      
+      
+      
+      
+      
 			// Get the weather forecast
 			getWeather: function(name) {
 				var deferred = $q.defer();
