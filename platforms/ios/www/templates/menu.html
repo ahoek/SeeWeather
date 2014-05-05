@@ -1,0 +1,16 @@
+<ion-side-menus>
+  
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-positive nav-title-slide-ios7">
+      <ion-nav-buttons side="left">
+        <button ng-click="toggleLeft()" class="button button-icon icon ion-navicon"></button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left" is-enabled="true">
+    <ion-nav-view name="menuLeft"></ion-nav-view>
+  </ion-side-menu>	
+  
+</ion-side-menus>
