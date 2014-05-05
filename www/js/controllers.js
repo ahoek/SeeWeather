@@ -1,4 +1,6 @@
 angular.module('starter.controllers', [])
+	.controller('AppController', function($scope) {
+	})
 
 	// Side menu toggle button
 	.controller('ContentController', function($scope, $ionicSideMenuDelegate) {
@@ -7,6 +9,7 @@ angular.module('starter.controllers', [])
 			$ionicSideMenuDelegate.toggleRight();
 		};
 	})
+  
 	.controller('MenuController', function($scope, Locations) {
 	
 		// Helper function to add location
