@@ -38,7 +38,6 @@
 /Users/arthurhoek/Developer/SeeWeather/platforms/android/assets/www/lib/ionic \
 /Users/arthurhoek/Developer/SeeWeather/platforms/android/assets/www/lib/ionic/css \
 /Users/arthurhoek/Developer/SeeWeather/platforms/android/assets/www/lib/ionic/fonts \
-/Users/arthurhoek/Developer/SeeWeather/platforms/android/assets/www/lib/ionic/ionicons \
 /Users/arthurhoek/Developer/SeeWeather/platforms/android/assets/www/lib/ionic/js \
 /Users/arthurhoek/Developer/SeeWeather/platforms/android/assets/www/lib/ionic/scss \
 /Users/arthurhoek/Developer/SeeWeather/platforms/android/assets/www/lib/ionic/version.json \
@@ -48,11 +47,6 @@
 /Users/arthurhoek/Developer/SeeWeather/platforms/android/assets/www/lib/ionic/fonts/ionicons.svg \
 /Users/arthurhoek/Developer/SeeWeather/platforms/android/assets/www/lib/ionic/fonts/ionicons.ttf \
 /Users/arthurhoek/Developer/SeeWeather/platforms/android/assets/www/lib/ionic/fonts/ionicons.woff \
-/Users/arthurhoek/Developer/SeeWeather/platforms/android/assets/www/lib/ionic/ionicons/_ionicons-animation.scss \
-/Users/arthurhoek/Developer/SeeWeather/platforms/android/assets/www/lib/ionic/ionicons/_ionicons-font.scss \
-/Users/arthurhoek/Developer/SeeWeather/platforms/android/assets/www/lib/ionic/ionicons/_ionicons-icons.scss \
-/Users/arthurhoek/Developer/SeeWeather/platforms/android/assets/www/lib/ionic/ionicons/_ionicons-variables.scss \
-/Users/arthurhoek/Developer/SeeWeather/platforms/android/assets/www/lib/ionic/ionicons/ionicons.scss \
 /Users/arthurhoek/Developer/SeeWeather/platforms/android/assets/www/lib/ionic/js/angular \
 /Users/arthurhoek/Developer/SeeWeather/platforms/android/assets/www/lib/ionic/js/angular-ui \
 /Users/arthurhoek/Developer/SeeWeather/platforms/android/assets/www/lib/ionic/js/ionic-angular.js \
@@ -123,4 +117,5 @@
 /Users/arthurhoek/Developer/SeeWeather/platforms/android/assets/www/plugins/org.apache.cordova.statusbar/www/statusbar.js \
 /Users/arthurhoek/Developer/SeeWeather/platforms/android/assets/www/templates/location.html \
 /Users/arthurhoek/Developer/SeeWeather/platforms/android/assets/www/templates/locations.html \
+/Users/arthurhoek/Developer/SeeWeather/platforms/android/assets/www/templates/menu.html \
 /Users/arthurhoek/Developer/SeeWeather/platforms/android/ant-build/AndroidManifest.xml \

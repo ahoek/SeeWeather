@@ -27,37 +27,6 @@
 
 	</head>
 	<body ng-app="starter" animation="slide-left-right-ios7">
-
-	<ion-side-menus>
-		<ion-side-menu-content ng-controller="ContentController">
-			<ion-nav-bar class="bar-positive nav-title-slide-ios7">
-				<ion-nav-back-button class="button-icon icon ion-chevron-left">
-				</ion-nav-back-button>
-
-				<ion-nav-buttons side="right">
-					<button ng-click="toggleRight()" class="button button-icon icon ion-navicon"></button>
-				</ion-nav-buttons>
-			</ion-nav-bar>
-			<ion-nav-view></ion-nav-view>
-		</ion-side-menu-content>
-
-		<ion-side-menu side="right" is-enabled="true" ng-controller="MenuController">
-			<ion-header-bar class="bar bar-header bar-dark">
-				<h1 class="title">Menu</h1>
-			</ion-header-bar>
-			<ion-content has-header="true" class="sidemenu-content">
-				<ion-list>
-					<ion-item class="sidemenu-item" ng-click="newLocation()">
-						<i class="icon ion-compose"></i>
-						Locatie toevoegen
-					</ion-item>
-					<ion-item class="sidemenu-item">
-						twee
-					</ion-item>
-				</ion-list>
-			</ion-content>
-		</ion-side-menu>		
-	</ion-side-menus>
-
-</body>
+		<ion-nav-view></ion-nav-view>
+	</body>
 </html>
