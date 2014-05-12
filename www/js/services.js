@@ -7,12 +7,13 @@ angular.module('starter.services', [])
 	.factory('Geo', function($q) {
 		return {
 			getLocation: function() {
-				var q = $q.defer();
+				var deferred = $q.defer();
 				navigator.geolocation.getCurrentPosition(function(position) {
-					q.resolve(position);
+					deferred.resolve(position);
 				}, function(error) {
-					q.reject(error);
+					deferred.reject(error);
 				});
+        return deferred.promise;
 			}
 		}
 	})
@@ -21,6 +22,7 @@ angular.module('starter.services', [])
 	 */
 	.factory('Locations', function($q, $http) {
 		var openWeatherBaseUrl = "http://api.openweathermap.org/data/2.5";
+    var appId = "***REMOVED***";
 
 		return {
 			all: function() {
@@ -48,7 +50,8 @@ angular.module('starter.services', [])
 			newLocation: function(name) {
 				// Add a new location
 				return {
-					name: name
+					name: name,
+          id: null
 				};
 			},
       
@@ -60,6 +63,43 @@ angular.module('starter.services', [])
         window.localStorage['lastActiveLocation'] = index;
       },      
       
+      // Find a location with geo coordinates
+        findLocation: function(coords) {
+          var deferred = $q.defer();
+          var url = openWeatherBaseUrl + "/find";
+          $http({
+            method: 'GET',
+            url: url,
+            params: {
+              APPID: appId,
+              lat: coords.latitude,
+              lon: coords.longitude,
+              cnt: 3,
+              type: 'like',
+              mode: "json"
+            }}).
+              success(function(data, status, headers, config) {
+                                 console.log(data, status);
+                var location = {};
+                if (data.count > 0) {
+ 
+                  var location = {
+                    name: data.list[0].name,
+                    id: data.list[0].id
+                  };
+                  deferred.resolve(location);
+                } else {
+                  deferred.reject('jammer maar helaas');
+                }
+
+              }).
+              error(function(data, status, headers, config) {
+                console.log(data, status);
+                deferred.reject('jammer maar helaas');
+              });
+
+          return deferred.promise;
+        },
       
       
       
@@ -73,7 +113,7 @@ angular.module('starter.services', [])
 					method: 'GET',
 					url: openWeatherUrl,
 					params: {
-						APPID: "***REMOVED***",
+						APPID: appId,
 						q: name
 					}}).
 					success(function(data, status, headers, config) {
@@ -81,7 +121,6 @@ angular.module('starter.services', [])
 						deferred.resolve(data);
 					}).
 					error(function(data, status, headers, config) {
-						//deferred.
 						deferred.reject('jammer maar helaas');
 					});
 

@@ -9,10 +9,13 @@
   <!-- Modal content area -->
   <ion-content>
 
-    <form ng-submit="createLocation(location)">
+    <form ng-submit="createLocation(place)">
+      <button type="button" class="button" ng-click="place = getCurrentLocation(place)">
+        Zoek huidige locatie
+      </button>
       <div class="list">
         <label class="item item-input">
-          <input type="text" placeholder="Geef een plaatsnaam op" ng-model="location.name">
+          <input type="text" placeholder="Geef een plaatsnaam op" ng-model="place.name">
         </label>
       </div>
       <div class="padding">

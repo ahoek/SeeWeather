@@ -6,7 +6,7 @@ angular.module('starter.controllers', [])
     })
 
     // Location overview
-    .controller('LocationsController', function($scope, Locations, $ionicModal, $ionicSideMenuDelegate) {
+    .controller('LocationsController', function($scope, Locations, Geo, $ionicModal, $ionicSideMenuDelegate) {
 
       // Define item buttons (does not work?)
       /*
@@ -36,16 +36,32 @@ angular.module('starter.controllers', [])
       // Called when the form is submitted
       $scope.createLocation = function(location) {
         $scope.locations.push({
-          name: location.name
+          name: location.name,
+          id: location.id
         });
         Locations.save($scope.locations);
         $scope.locationModal.hide();
         location.name = "";
+        location.id = null;
       };
 
       // Open our new location modal
       $scope.newLocation = function() {
         $scope.locationModal.show();
+      };
+
+      $scope.getCurrentLocation = function(place) {
+        Geo.getLocation().then(function(position) {
+          console.log(position.coords);
+          // Get the location from openweathermap
+          Locations.findLocation(position.coords).then(function(pl) {
+            $scope.place = pl;
+            place = pl;
+            //$scope.locationModal.place = loc;
+            console.log(place);
+            console.log($scope);
+          });
+        });
       };
 
       // Close the new location modal
@@ -56,7 +72,7 @@ angular.module('starter.controllers', [])
       $scope.removeLocation = function(index) {
         $scope.locations.splice(index, 1);
         Locations.save($scope.locations);
-      }
+      };
 
       // Called to select the given location
       $scope.selectLocation = function(location, index) {
