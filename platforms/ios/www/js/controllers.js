@@ -19,6 +19,7 @@ angular.module('starter.controllers', [])
         }];
       //console.log($scope.itemButtons);
       */
+     
       $scope.locations = Locations.all();
 
       // Grab the last active, or the first location
@@ -31,6 +32,7 @@ angular.module('starter.controllers', [])
         scope: $scope,
         animation: 'slide-in-up'
       });
+      
       // Called when the form is submitted
       $scope.createLocation = function(location) {
         $scope.locations.push({
@@ -41,12 +43,12 @@ angular.module('starter.controllers', [])
         location.name = "";
       };
 
-      // Open our new task modal
+      // Open our new location modal
       $scope.newLocation = function() {
         $scope.locationModal.show();
       };
 
-      // Close the new task modal
+      // Close the new location modal
       $scope.closeNewLocation = function() {
         $scope.locationModal.hide();
       };
