@@ -6,9 +6,10 @@ angular.module('starter.controllers', [])
     })
 
     // Location overview
-    .controller('LocationsController', function($scope, Locations, $ionicSideMenuDelegate) {
+    .controller('LocationsController', function($scope, Locations, $ionicModal, $ionicSideMenuDelegate) {
 
       // Define item buttons (does not work?)
+      /*
       $scope.itemButtons = [{
           text: 'Verwijderen',
           type: 'button-assertive',
@@ -17,28 +18,41 @@ angular.module('starter.controllers', [])
           }
         }];
       //console.log($scope.itemButtons);
-
+      */
+     
       $scope.locations = Locations.all();
 
       // Grab the last active, or the first location
       $scope.activeLocation = $scope.locations[Locations.getLastActiveIndex()];
 
-      // Helper function to add location
-      var createLocation = function(name) {
-        var newLocation = Locations.newLocation(name);
-        $scope.locations.push(newLocation);
+      // Create and load the Modal
+      $ionicModal.fromTemplateUrl('templates/new-location.html', function(modal) {
+        $scope.locationModal = modal;
+      }, {
+        scope: $scope,
+        animation: 'slide-in-up'
+      });
+      
+      // Called when the form is submitted
+      $scope.createLocation = function(location) {
+        $scope.locations.push({
+          name: location.name
+        });
         Locations.save($scope.locations);
+        $scope.locationModal.hide();
+        location.name = "";
       };
 
-      // Create a new location
+      // Open our new location modal
       $scope.newLocation = function() {
-        var name = prompt('Voer de plaatsnaam in');
-        if (name) {
-          createLocation(name);
-          //$scope.sideMenuController.close();
-        }
+        $scope.locationModal.show();
       };
 
+      // Close the new location modal
+      $scope.closeNewLocation = function() {
+        $scope.locationModal.hide();
+      };
+      
       $scope.removeLocation = function(index) {
         $scope.locations.splice(index, 1);
         Locations.save($scope.locations);
