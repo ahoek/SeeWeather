@@ -36,11 +36,13 @@ angular.module('starter.controllers', [])
       // Called when the form is submitted
       $scope.createLocation = function(location) {
         $scope.locations.push({
-          name: location.name
+          name: location.name,
+          id: location.id
         });
         Locations.save($scope.locations);
         $scope.locationModal.hide();
         location.name = "";
+        location.id = null;
       };
 
       // Open our new location modal
@@ -56,7 +58,7 @@ angular.module('starter.controllers', [])
       $scope.removeLocation = function(index) {
         $scope.locations.splice(index, 1);
         Locations.save($scope.locations);
-      }
+      };
 
       // Called to select the given location
       $scope.selectLocation = function(location, index) {
@@ -100,6 +102,19 @@ angular.module('starter.controllers', [])
           $scope.$broadcast('scroll.refreshComplete');
         });
       };
+    })
+    
+    // Location form
+    .controller('LocationFormController', function($scope, Geo, Locations) {
+      $scope.getCurrentLocation = function(location) {
+        Geo.getLocation().then(function(position) {
+          console.log(position.coords);
+          // Get the location from openweathermap
+          Locations.findLocation(position.coords).then(function(location) {
+            $scope.location = location;
+          });
+        });
+      };   
     })
 
 
