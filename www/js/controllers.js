@@ -6,7 +6,7 @@ angular.module('starter.controllers', [])
     })
 
     // Location overview
-    .controller('LocationsController', function($scope, Locations, Geo, $ionicModal, $ionicSideMenuDelegate) {
+    .controller('LocationsController', function($scope, Locations, $ionicModal, $ionicSideMenuDelegate) {
 
       // Define item buttons (does not work?)
       /*
@@ -48,20 +48,6 @@ angular.module('starter.controllers', [])
       // Open our new location modal
       $scope.newLocation = function() {
         $scope.locationModal.show();
-      };
-
-      $scope.getCurrentLocation = function(place) {
-        Geo.getLocation().then(function(position) {
-          console.log(position.coords);
-          // Get the location from openweathermap
-          Locations.findLocation(position.coords).then(function(pl) {
-            $scope.place = pl;
-            place = pl;
-            //$scope.locationModal.place = loc;
-            console.log(place);
-            console.log($scope);
-          });
-        });
       };
 
       // Close the new location modal
@@ -116,6 +102,19 @@ angular.module('starter.controllers', [])
           $scope.$broadcast('scroll.refreshComplete');
         });
       };
+    })
+    
+    // Location form
+    .controller('LocationFormController', function($scope, Geo, Locations) {
+      $scope.getCurrentLocation = function(location) {
+        Geo.getLocation().then(function(position) {
+          console.log(position.coords);
+          // Get the location from openweathermap
+          Locations.findLocation(position.coords).then(function(location) {
+            $scope.location = location;
+          });
+        });
+      };   
     })
 
 

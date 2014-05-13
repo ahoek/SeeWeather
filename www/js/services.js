@@ -64,44 +64,40 @@ angular.module('starter.services', [])
       },      
       
       // Find a location with geo coordinates
-        findLocation: function(coords) {
-          var deferred = $q.defer();
-          var url = openWeatherBaseUrl + "/find";
-          $http({
-            method: 'GET',
-            url: url,
-            params: {
-              APPID: appId,
-              lat: coords.latitude,
-              lon: coords.longitude,
-              cnt: 3,
-              type: 'like',
-              mode: "json"
-            }}).
-              success(function(data, status, headers, config) {
-                                 console.log(data, status);
-                var location = {};
-                if (data.count > 0) {
- 
-                  var location = {
-                    name: data.list[0].name,
-                    id: data.list[0].id
-                  };
-                  deferred.resolve(location);
-                } else {
-                  deferred.reject('jammer maar helaas');
-                }
+      findLocation: function(coords) {
+        var deferred = $q.defer();
+        var url = openWeatherBaseUrl + "/find";
+        $http({
+          method: 'GET',
+          url: url,
+          params: {
+            APPID: appId,
+            lat: coords.latitude,
+            lon: coords.longitude,
+            cnt: 4,
+            type: 'like',
+            mode: "json"
+          }}).
+          success(function(data, status, headers, config) {
+            console.log(data, status);
+            var location = {};
+            if (data.count > 0) {
+              var location = {
+                name: data.list[0].name,
+                id: data.list[0].id
+              };
+              deferred.resolve(location);
+            } else {
+              deferred.reject('Error finding city with given coordinates');
+            }
+          }).
+          error(function(data, status, headers, config) {
+            console.log(data, status);
+            deferred.reject('Error finding city');
+          });
 
-              }).
-              error(function(data, status, headers, config) {
-                console.log(data, status);
-                deferred.reject('jammer maar helaas');
-              });
-
-          return deferred.promise;
-        },
-      
-      
+        return deferred.promise;
+      },
       
 			// Get the weather forecast
 			getWeather: function(name) {
@@ -117,11 +113,10 @@ angular.module('starter.services', [])
 						q: name
 					}}).
 					success(function(data, status, headers, config) {
-						//console.log(data);
 						deferred.resolve(data);
 					}).
 					error(function(data, status, headers, config) {
-						deferred.reject('jammer maar helaas');
+						deferred.reject('Error retreiving weather forecast');
 					});
 
 				return deferred.promise;
