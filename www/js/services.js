@@ -67,17 +67,19 @@ angular.module('starter.services', [])
       findLocation: function(coords) {
         var deferred = $q.defer();
         var url = openWeatherBaseUrl + "/find";
+        var params = {
+          APPID: appId,
+          lat: coords.latitude.toFixed(4),
+          lon: coords.longitude.toFixed(4),
+          //cnt: 4,
+          //type: 'like',
+          mode: "json"
+        };
+        console.log(params);
         $http({
           method: 'GET',
           url: url,
-          params: {
-            APPID: appId,
-            lat: coords.latitude,
-            lon: coords.longitude,
-            cnt: 4,
-            type: 'like',
-            mode: "json"
-          }}).
+          params: params}).
           success(function(data, status, headers, config) {
             console.log(data, status);
             var location = {};
