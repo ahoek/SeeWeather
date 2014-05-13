@@ -5,7 +5,7 @@
     <h1 class="title">Plaatsen</h1>
 
   </ion-header-bar>
- 	<ion-content class="has-header">
+  <ion-content class="has-header">
     <ion-list option-buttons="itemButtons" can-swipe="true">
       <ion-item ng-repeat="(id, location) in locations"
                 ng-click="selectLocation(location, id)" ng-class="{active: activeLocation == location}"

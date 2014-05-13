@@ -1,59 +1,59 @@
 <!--
 -->
 <ion-view title="{{location.name}}">
-	<ion-content has-header="true" padding="false" overflow-scroll="false">
-		<ion-refresher
-			on-refresh="refreshWeather()">
-		</ion-refresher>
-		<!-- forecast -->
-		<ion-list>
-			<div ng-repeat-start="(day, weather) in forecastDays" class="item item-divider">
-				{{day|date:'fullDate'}}
-			</div>
-			<ion-item ng-repeat="item in weather">
-				<span class="weather-icon">
-					<i class="w-base-{{item.weather[0].icon}}"></i>
-					<i class="w-{{item.weather[0].icon}}"></i>
-				</span>
-				<!--{{item.weather[0].icon}} {{item.weather}}-->
+  <ion-content has-header="true" padding="false" overflow-scroll="false">
+    <ion-refresher
+      on-refresh="refreshWeather()">
+    </ion-refresher>
+    <!-- forecast -->
+    <ion-list>
+      <div ng-repeat-start="(day, weather) in forecastDays" class="item item-divider">
+        {{day|date:'fullDate'}}
+      </div>
+      <ion-item ng-repeat="item in weather">
+        <span class="weather-icon">
+          <i class="w-base-{{item.weather[0].icon}}"></i>
+          <i class="w-{{item.weather[0].icon}}"></i>
+        </span>
+        <!--{{item.weather[0].icon}} {{item.weather}}-->
 
-				<span style="width:4em;display: inline-block;text-align:right;">
-					{{item.main.temp - 273.15| number:0}}<span class="unit">°C</span>
+        <span style="width:4em;display: inline-block;text-align:right;">
+          {{item.main.temp - 273.15| number:0}}<span class="unit">°C</span>
 
-				</span>
-				<span style="width:2.5em;display: inline-block;text-align:right;">
-					<strong>{{item.wind.speed|windspeed:'bft'| number:1 }}</strong>
-				</span>
-				<small style="width:4em;display: inline-block;text-align:right;">
-					{{item.wind.speed|windspeed:'kph'| number:0 }}<span class="unit">km/u</span>
-				</small>
-				<!--<span class="unit">m/s</span>--> 
-				<!-- wind direction -->
-				<i class="ion-navigate" style="-webkit-transform: rotate({{item.wind.deg - 45 + 180}}deg); margin-left: 0.5em;"></i>
-				<span class="item-note">
-					{{item.dt * 1000| date:'shortTime'}}
-				</span>
-			</ion-item>
-			<div ng-repeat-end></div>
-		</ion-list>
+        </span>
+        <span style="width:2.5em;display: inline-block;text-align:right;">
+          <strong>{{item.wind.speed|windspeed:'bft'| number:1 }}</strong>
+        </span>
+        <small style="width:4em;display: inline-block;text-align:right;">
+          {{item.wind.speed|windspeed:'kph'| number:0 }}<span class="unit">km/u</span>
+        </small>
+        <!--<span class="unit">m/s</span>--> 
+        <!-- wind direction -->
+        <i class="ion-navigate" style="-webkit-transform: rotate({{item.wind.deg - 45 + 180}}deg); margin-left: 0.5em;"></i>
+        <span class="item-note">
+          {{item.dt * 1000| date:'shortTime'}}
+        </span>
+      </ion-item>
+      <div ng-repeat-end></div>
+    </ion-list>
 
 
-		<!-- Current weather -->
-		<!--
+    <!-- Current weather -->
+    <!--
   
-		<div class="card">
-			<div class="item item-text-wrap">
-				Wind: {{weather.wind.speed | number}} m/s, {{weather.wind.deg | number}} graden
-			</div>
-		</div>
-		<div class="card">
-			<div class="item item-text-wrap">
-				Temperatuur: {{weather.main.temp | number:2}} K / {{weather.main.temp - 273.15 | number:2}} °C
-			</div>
-		</div>	
-		<div>
-			{{lastRefresh}}
-		</div>
-		-->
-	</ion-content>
+    <div class="card">
+      <div class="item item-text-wrap">
+        Wind: {{weather.wind.speed | number}} m/s, {{weather.wind.deg | number}} graden
+      </div>
+    </div>
+    <div class="card">
+      <div class="item item-text-wrap">
+        Temperatuur: {{weather.main.temp | number:2}} K / {{weather.main.temp - 273.15 | number:2}} °C
+      </div>
+    </div>	
+    <div>
+      {{lastRefresh}}
+    </div>
+    -->
+  </ion-content>
 </ion-view>

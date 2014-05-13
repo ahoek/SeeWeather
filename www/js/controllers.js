@@ -19,8 +19,9 @@ angular.module('starter.controllers', [])
         }];
       //console.log($scope.itemButtons);
       */
-     
+
       $scope.locations = Locations.all();
+      console.log($scope.locations);
 
       // Grab the last active, or the first location
       $scope.activeLocation = $scope.locations[Locations.getLastActiveIndex()];
@@ -32,7 +33,7 @@ angular.module('starter.controllers', [])
         scope: $scope,
         animation: 'slide-in-up'
       });
-      
+
       // Called when the form is submitted
       $scope.createLocation = function(location) {
         $scope.locations.push({
@@ -54,7 +55,7 @@ angular.module('starter.controllers', [])
       $scope.closeNewLocation = function() {
         $scope.locationModal.hide();
       };
-      
+
       $scope.removeLocation = function(index) {
         $scope.locations.splice(index, 1);
         Locations.save($scope.locations);
@@ -103,7 +104,7 @@ angular.module('starter.controllers', [])
         });
       };
     })
-    
+
     // Location form
     .controller('LocationFormController', function($scope, Geo, Locations) {
       $scope.getCurrentLocation = function(location) {
