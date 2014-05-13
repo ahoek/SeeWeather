@@ -23,7 +23,7 @@ angular.module('starter.services', [])
    */
   .factory('Locations', function($q, $http) {
     var openWeatherBaseUrl = "http://api.openweathermap.org/data/2.5";
-    var appId = "***REMOVED***";
+    var appId = OPENWEATHERMAP_APPID;
 
     return {
       all: function() {
