@@ -105,17 +105,23 @@ angular.module('starter.controllers', [])
       };
     })
 
-    // Location form
+    // Add location form
     .controller('LocationFormController', function($scope, Geo, Locations) {
+  
       $scope.getCurrentLocation = function(location) {
+        // Get the geo position from the device
         Geo.getLocation().then(function(position) {
           console.log(position.coords);
           // Get the location from openweathermap
-          Locations.findLocation(position.coords).then(function(location) {
-            $scope.location = location;
+          Locations.findLocation(position.coords).then(function(locations) {
+            $scope.locations = locations;
+            $scope.location = locations[0];
           });
         });
       };   
+      
+      $scope.locations = $scope.getCurrentLocation();
+ 
     })
 
 
