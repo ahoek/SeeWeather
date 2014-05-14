@@ -72,8 +72,8 @@ angular.module('starter.services', [])
           APPID: appId,
           lat: coords.latitude.toFixed(4),
           lon: coords.longitude.toFixed(4),
-          //cnt: 4,
-          //type: 'like',
+          cnt: 4,
+          type: 'like',
           mode: "json"
         };
         console.log(params);
