@@ -7,15 +7,15 @@
   </ion-header-bar>
   <ion-content class="has-header">
     <ion-list option-buttons="itemButtons" can-swipe="true">
-      <ion-item ng-repeat="(id, location) in locations"
-                ng-click="selectLocation(location, id)" ng-class="{active: activeLocation == location}"
+      <ion-item ng-repeat="location in locations"
+                ng-click="selectLocation(location)" ng-class="{active: activeLocation == location}"
                 type="item-text-wrap" 
-                ng-href="#/app/location/{{id}}"
+                ng-href="#/app/location/{{location.id}}"
                 class="item item-icon-right">
         {{location.name}}
         <i class="icon ion-chevron-right icon-accessory"></i>
         <ion-option-button class="button-assertive"
-                           ng-click="removeLocation(id)">
+                           ng-click="removeLocation(location)">
           Verwijderen
         </ion-option-button>
       </ion-item>

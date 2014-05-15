@@ -35,11 +35,16 @@ angular.module('starter.services', [])
       },
 
       get: function(locationId) {
+        locationId = parseInt(locationId);
         var locationsString = window.localStorage['locations'];
         if (locationsString) {
-          return angular.fromJson(locationsString)[locationId];
+          var locations = angular.fromJson(locationsString);
+          for (var index = 0; index < locations.length; index++) {
+            if (locations[index].id === locationId) {
+              return locations[index];
+            }
+          }
         }
-
         return {};
       },
 
@@ -60,8 +65,8 @@ angular.module('starter.services', [])
         return parseInt(window.localStorage['lastActiveLocation']) || 0;
       },
 
-      setLastActiveIndex: function(index) {
-        window.localStorage['lastActiveLocation'] = index;
+      setLastActiveIndex: function(id) {
+        window.localStorage['lastActiveLocation'] = id;
       },      
 
       // Find a location with geo coordinates
@@ -69,11 +74,11 @@ angular.module('starter.services', [])
         var deferred = $q.defer();
         var url = openWeatherBaseUrl + "/find";
         var params = {
-          //APPID: appId,
+          APPID: appId,
           lat: coords.latitude.toFixed(6),
           lon: coords.longitude.toFixed(6),
-          //cnt: 7,
-          //type: 'like',
+          cnt: 4,
+          type: 'like',
           mode: "json"
         };
         console.log(params);

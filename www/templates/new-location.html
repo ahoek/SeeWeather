@@ -1,4 +1,4 @@
-<div class="modal">
+<div class="modal" ng-controller="LocationFormController">
 
   <!-- Modal header bar -->
   <ion-header-bar class="bar-secondary">
@@ -9,23 +9,19 @@
   <!-- Modal content area -->
   <ion-content>
 
-    <form ng-submit="createLocation(location)" ng-controller="LocationFormController">
+    <form ng-submit="createLocation(city)">
       <div class="list">
 
         <label class="item item-input">
-          <input type="text" placeholder="Geef een plaatsnaam op" ng-model="location.name">
+          <input type="text" placeholder="Geef een plaatsnaam op" ng-model="city.name">
         </label>
-
-        <label class="item item-input item-select">
-          <div class="input-label">
-            Kies nabije plaats
-          </div>
-          <select ng-model="location" 
-                  ng-options="location.name for location in locations"
-                  >
-            <option>Geen plaatsen gevonden</option>
-          </select>
-        </label>
+        <button type="button" class=" item button button-block" ng-click="getNearbyCities()">
+          Zoek nabije plaatsen
+        </button>
+        <ion-item ng-repeat="nearbyCity in nearbyCities"
+                  ng-click="setCity(nearbyCity)">
+          {{nearbyCity.name}}
+        </ion-item>        
 
       </div>
       <div class="padding">
