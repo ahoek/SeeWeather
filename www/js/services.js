@@ -35,11 +35,16 @@ angular.module('starter.services', [])
       },
 
       get: function(locationId) {
+        locationId = parseInt(locationId);
         var locationsString = window.localStorage['locations'];
         if (locationsString) {
-          return angular.fromJson(locationsString)[locationId];
+          var locations = angular.fromJson(locationsString);
+          for (var index = 0; index < locations.length; index++) {
+            if (locations[index].id === locationId) {
+              return locations[index];
+            }
+          }
         }
-
         return {};
       },
 
@@ -60,8 +65,8 @@ angular.module('starter.services', [])
         return parseInt(window.localStorage['lastActiveLocation']) || 0;
       },
 
-      setLastActiveIndex: function(index) {
-        window.localStorage['lastActiveLocation'] = index;
+      setLastActiveIndex: function(id) {
+        window.localStorage['lastActiveLocation'] = id;
       },      
 
       // Find a location with geo coordinates
@@ -70,10 +75,10 @@ angular.module('starter.services', [])
         var url = openWeatherBaseUrl + "/find";
         var params = {
           APPID: appId,
-          lat: coords.latitude.toFixed(4),
-          lon: coords.longitude.toFixed(4),
-          //cnt: 4,
-          //type: 'like',
+          lat: coords.latitude.toFixed(6),
+          lon: coords.longitude.toFixed(6),
+          cnt: 4,
+          type: 'like',
           mode: "json"
         };
         console.log(params);
@@ -85,11 +90,8 @@ angular.module('starter.services', [])
             console.log(data, status);
             var location = {};
             if (data.count > 0) {
-              var location = {
-                name: data.list[0].name,
-                id: data.list[0].id
-              };
-              deferred.resolve(location);
+              var locations = data.list;
+              deferred.resolve(locations);
             } else {
               deferred.reject('Error finding city with given coordinates');
             }
