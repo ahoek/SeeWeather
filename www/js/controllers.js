@@ -59,7 +59,7 @@ angular.module('starter.controllers', [])
     })
 
     // Location forecast detail
-    .controller('LocationController', function($scope, $stateParams, Locations) {
+    .controller('LocationController', function($scope, $stateParams, Locations, OpenWeatherMap) {
       $scope.location = Locations.get($stateParams.locationId);
 
       // Group by day helper function
@@ -81,13 +81,13 @@ angular.module('starter.controllers', [])
       };
 
       if ($scope.location) {
-        Locations.getWeather($scope.location.name).then(function(weather) {
+        OpenWeatherMap.getWeather($scope.location.name).then(function(weather) {
           $scope.forecastDays = makeGroups(weather.list);
         });
       }
 
       $scope.refreshWeather = function() {
-        Locations.getWeather($scope.location.name).then(function(weather) {
+        OpenWeatherMap.getWeather($scope.location.name).then(function(weather) {
           $scope.forecastDays = makeGroups(weather.list);
 
           //Stop the ion-refresher from spinning
@@ -97,14 +97,14 @@ angular.module('starter.controllers', [])
     })
 
     // Add location form
-    .controller('LocationFormController', function($scope, Geo, Locations) {
+    .controller('LocationFormController', function($scope, Geo, OpenWeatherMap) {
   
       $scope.getNearbyCities = function() {
         // Get the geo position from the device
         Geo.getLocation().then(function(position) {
           console.log(position.coords);
           // Get the location from openweathermap
-          Locations.findLocation(position.coords).then(function(cities) {
+          OpenWeatherMap.findLocation(position.coords).then(function(cities) {
             $scope.nearbyCities = cities;
 
           });
