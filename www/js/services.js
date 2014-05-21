@@ -21,9 +21,7 @@ angular.module('starter.services', [])
   /**
    * Locations and weather services
    */
-  .factory('Locations', function($q, $http) {
-    var openWeatherBaseUrl = "http://api.openweathermap.org/data/2.5";
-    var appId = OPENWEATHERMAP_APPID;
+  .factory('Locations', function() {
 
     return {
       all: function() {
@@ -71,9 +69,19 @@ angular.module('starter.services', [])
 
       setLastActiveIndex: function(location) {
         window.localStorage['lastActiveLocation'] = angular.toJson(location);
-      },      
+      }
+    };
+  })
+  
+  /**
+   * OpenWeatherMap service
+   */
+  .factory('OpenWeatherMap', function($q, $http) {
+    var openWeatherBaseUrl = "http://api.openweathermap.org/data/2.5";
+    var appId = OPENWEATHERMAP_APPID;
 
-      // Find a location with geo coordinates
+    return {
+       // Find a location with geo coordinates
       findLocation: function(coords) {
         var deferred = $q.defer();
         var url = openWeatherBaseUrl + "/find";
@@ -130,5 +138,5 @@ angular.module('starter.services', [])
 
         return deferred.promise;
       }
-    };
+    };   
   });

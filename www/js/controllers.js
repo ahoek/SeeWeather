@@ -60,15 +60,12 @@ angular.module('starter.controllers', [])
 
     /**
      * Location forecast detail controller
-     * @param {type} $scope
-     * @param {type} Locations
-     * @returns {undefined}
      */
-    .controller('LocationController', function($scope, Locations) {
+    .controller('LocationController', function($scope, Locations, OpenWeatherMap) {
       $scope.location = Locations.getLastActiveIndex();
-  if (!$scope.location || $scope.location === {}) {
-    $scope.location = Locations.all()[0];
-  }
+      if (!$scope.location || $scope.location === {}) {
+        $scope.location = Locations.all()[0];
+      }
 
       // Group by day helper function
       var makeGroups = function(weatherList) {
@@ -87,15 +84,15 @@ angular.module('starter.controllers', [])
         }
         return forecastDays;
       };
-console.log('location', $scope.location);
+      console.log('location', $scope.location);
       if ($scope.location) {
-        Locations.getWeather($scope.location.name).then(function(weather) {
+          OpenWeatherMap.getWeather($scope.location.name).then(function(weather) {
           $scope.forecastDays = makeGroups(weather.list);
         });
       }
 
       $scope.refreshWeather = function() {
-        Locations.getWeather($scope.location.name).then(function(weather) {
+          OpenWeatherMap.getWeather($scope.location.name).then(function(weather) {
           $scope.forecastDays = makeGroups(weather.list);
 
           //Stop the ion-refresher from spinning
@@ -107,14 +104,13 @@ console.log('location', $scope.location);
     /** 
      * Add location form controller
      */
-    .controller('LocationFormController', function($scope, Geo, Locations) {
-  
-      $scope.getNearbyCities = function() {
+    .controller('LocationFormController', function($scope, Geo, OpenWeatherMap) {
+        $scope.getNearbyCities = function() {
         // Get the geo position from the device
         Geo.getLocation().then(function(position) {
           console.log(position.coords);
           // Get the location from openweathermap
-          Locations.findLocation(position.coords).then(function(cities) {
+          OpenWeatherMap.findLocation(position.coords).then(function(cities) {
             $scope.nearbyCities = cities;
 
           });
