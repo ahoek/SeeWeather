@@ -8,18 +8,6 @@ angular.module('starter.controllers', [])
     // Location overview
     .controller('LocationsController', function($scope, Locations, $ionicModal, $ionicSideMenuDelegate) {
 
-      // Define item buttons (does not work?)
-      /*
-      $scope.itemButtons = [{
-          text: 'Verwijderen',
-          type: 'button-assertive',
-          onTap: function(item) {
-            $scope.removeLocation(item);
-          }
-        }];
-      //console.log($scope.itemButtons);
-      */
-
       $scope.locations = Locations.all();
       console.log($scope.locations);
 
@@ -56,15 +44,16 @@ angular.module('starter.controllers', [])
         $scope.locationModal.hide();
       };
 
-      $scope.removeLocation = function(index) {
+      $scope.removeLocation = function(location) {
+        var index = $scope.locations.indexOf(location);
         $scope.locations.splice(index, 1);
         Locations.save($scope.locations);
       };
 
       // Called to select the given location
-      $scope.selectLocation = function(location, index) {
+      $scope.selectLocation = function(location) {
         $scope.activeLocation = location;
-        Locations.setLastActiveIndex(index);
+        Locations.setLastActiveIndex(location.id);
         $ionicSideMenuDelegate.toggleLeft(false);
       };
     })
@@ -91,9 +80,11 @@ angular.module('starter.controllers', [])
         return forecastDays;
       };
 
-      Locations.getWeather($scope.location.name).then(function(weather) {
-        $scope.forecastDays = makeGroups(weather.list);
-      });
+      if ($scope.location) {
+        Locations.getWeather($scope.location.name).then(function(weather) {
+          $scope.forecastDays = makeGroups(weather.list);
+        });
+      }
 
       $scope.refreshWeather = function() {
         Locations.getWeather($scope.location.name).then(function(weather) {
@@ -105,17 +96,24 @@ angular.module('starter.controllers', [])
       };
     })
 
-    // Location form
+    // Add location form
     .controller('LocationFormController', function($scope, Geo, Locations) {
-      $scope.getCurrentLocation = function(location) {
+  
+      $scope.getNearbyCities = function() {
+        // Get the geo position from the device
         Geo.getLocation().then(function(position) {
           console.log(position.coords);
           // Get the location from openweathermap
-          Locations.findLocation(position.coords).then(function(location) {
-            $scope.location = location;
+          Locations.findLocation(position.coords).then(function(cities) {
+            $scope.nearbyCities = cities;
+
           });
         });
       };   
+ 
+      $scope.setCity = function (city) {
+        $scope.city = city;
+      };
     })
 
 
