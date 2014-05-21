@@ -35,6 +35,7 @@ angular.module('starter.services', [])
       },
 
       get: function(locationId) {
+        //window.localStorage['locations'] = angular.toJson([]);
         locationId = parseInt(locationId);
         var locationsString = window.localStorage['locations'];
         if (locationsString) {
@@ -57,16 +58,19 @@ angular.module('starter.services', [])
         // Add a new location
         return {
           name: name,
-          id: null
+          id: null,
+          coords: {}
         };
       },
 
       getLastActiveIndex: function() {
-        return parseInt(window.localStorage['lastActiveLocation']) || 0;
+        
+        //window.localStorage['lastActiveLocation'] = angular.toJson({});
+        return angular.fromJson(window.localStorage['lastActiveLocation']) || null;
       },
 
-      setLastActiveIndex: function(id) {
-        window.localStorage['lastActiveLocation'] = id;
+      setLastActiveIndex: function(location) {
+        window.localStorage['lastActiveLocation'] = angular.toJson(location);
       },      
 
       // Find a location with geo coordinates

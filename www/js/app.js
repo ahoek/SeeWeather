@@ -21,8 +21,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         controller: 'AppController'
       })
 
-      .state('app.location', {
-        url: '/location/:locationId',
+      .state('app.forecast', {
+        url: '/forecast',
         views: {
           'menuContent': {
             templateUrl: 'templates/location.html',
@@ -36,7 +36,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       })
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('app/location/0');
+    $urlRouterProvider.otherwise('app/forecast');
 
   });
 

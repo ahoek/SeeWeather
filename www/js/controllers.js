@@ -12,7 +12,7 @@ angular.module('starter.controllers', [])
       console.log($scope.locations);
 
       // Grab the last active, or the first location
-      $scope.activeLocation = $scope.locations[Locations.getLastActiveIndex()];
+      $scope.activeLocation = Locations.getLastActiveIndex();
 
       // Create and load the Modal
       $ionicModal.fromTemplateUrl('templates/new-location.html', function(modal) {
@@ -53,14 +53,22 @@ angular.module('starter.controllers', [])
       // Called to select the given location
       $scope.selectLocation = function(location) {
         $scope.activeLocation = location;
-        Locations.setLastActiveIndex(location.id);
+        Locations.setLastActiveIndex(location);
         $ionicSideMenuDelegate.toggleLeft(false);
       };
     })
 
-    // Location forecast detail
-    .controller('LocationController', function($scope, $stateParams, Locations) {
-      $scope.location = Locations.get($stateParams.locationId);
+    /**
+     * Location forecast detail controller
+     * @param {type} $scope
+     * @param {type} Locations
+     * @returns {undefined}
+     */
+    .controller('LocationController', function($scope, Locations) {
+      $scope.location = Locations.getLastActiveIndex();
+  if (!$scope.location || $scope.location === {}) {
+    $scope.location = Locations.all()[0];
+  }
 
       // Group by day helper function
       var makeGroups = function(weatherList) {
@@ -79,7 +87,7 @@ angular.module('starter.controllers', [])
         }
         return forecastDays;
       };
-
+console.log('location', $scope.location);
       if ($scope.location) {
         Locations.getWeather($scope.location.name).then(function(weather) {
           $scope.forecastDays = makeGroups(weather.list);
@@ -96,7 +104,9 @@ angular.module('starter.controllers', [])
       };
     })
 
-    // Add location form
+    /** 
+     * Add location form controller
+     */
     .controller('LocationFormController', function($scope, Geo, Locations) {
   
       $scope.getNearbyCities = function() {
