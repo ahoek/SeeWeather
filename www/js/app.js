@@ -3,11 +3,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
   .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
-      ionic.Platform.fullScreen()
+      //ionic.Platform.fullScreen()
 
-      if (window.StatusBar) {
-        StatusBar.hide();
-      }
+      //if (window.StatusBar) {
+      //  StatusBar.hide();
+      //}
     });
   })
 
