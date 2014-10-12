@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>F90936E8-3C63-41F0-BE02-8E19AB8A88B2</string>
+	<string>F39CA0CD-3960-4D17-B6C7-A279CAC4AF9F</string>
 	<key>IDESourceControlProjectName</key>
 	<string>SeeWeather</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -14,7 +14,7 @@
 		<string>https://bitbucket.org/hoek/seeweather.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>platforms/ios/SeeWeather.xcodeproj/project.xcworkspace</string>
+	<string>platforms/ios/SeeWeather.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>868E7F31861239874249DECC57F6333ED44183F9</key>
