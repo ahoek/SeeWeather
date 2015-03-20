@@ -5,4 +5,5 @@ platforms/android/assets/www
 /nbproject/private/
 www/npm-debug.log
 www/js/settings.js
+www/lib
 

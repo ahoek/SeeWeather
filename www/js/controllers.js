@@ -114,6 +114,6 @@ angular.module('starter.controllers', [])
         $scope.setCity = function (city) {
             $scope.city = city;
         };
-    })
+    });
 
 

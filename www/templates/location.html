@@ -11,13 +11,8 @@
                 {{day|date:'fullDate'}}
             </div>
             <ion-item ng-repeat="item in weather" class="weather-item">
-<!--                <div class="background" 
-                     style="background-position-y: {{(item.dt % 333) * 3}}px;"></div>-->
-                <div class="background moving" 
-                     style="background-position-y: {{(item.dt % 333) * 3}}px;
-                     -webkit-animation-duration: {{400 / item.wind.speed}}s;"></div>
-                
-                 <span class="weather-icon">
+
+                <span class="weather-icon">
                     <i class="w-base-{{item.weather[0].icon}}"></i>
                     <i class="w-{{item.weather[0].icon}}"></i>
                 </span>
@@ -32,9 +27,9 @@
                 <small style="width:4em;display: inline-block;text-align:right;">
                     {{item.wind.speed|windspeed:'kph'| number:0 }}<span class="unit">km/u</span>
                 </small>
-                <!--<span class="unit">m/s</span>--> 
-                <!-- wind direction -->
+
                 <i class="ion-navigate" style="display: inline-block; -webkit-transform: rotate({{item.wind.deg - 45 + 180}}deg); margin-left: 0.5em;"></i>
+                
                 <span class="item-note">
                     {{item.dt * 1000| date:'shortTime'}}
                 </span>
