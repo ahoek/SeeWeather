@@ -1,23 +1,23 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="nl.arthurhoek.seeweather" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>SeeWeather</name>
-  <description>
-    SeeWeather
-  </description>
-  <author email="dev@arthurhoek.nl" href="http://arthurhoek.nl/">
-    Arthur Hoek
-  </author>
-  <content src="index.html" />
-  <access origin="*" />
-  <preference name="fullscreen" value="true" />
-  <preference name="webviewbounce" value="false" />
-  <preference name="UIWebViewBounce" value="false" />
-  <preference name="DisallowOverscroll" value="true" />
-  <preference name="Orientation" value="default" />
-  <feature name="StatusBar">
-    <param name="ios-package" value="CDVStatusBar" onload="true" />
-  </feature>
-  <feature name="Logger">
-    <param name="ios-package" value="CDVLogger" onload="true" />
-  </feature>
+<widget id="nl.arthurhoek.seeweather" version="1.0.0-alpha.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>SeeWeather</name>
+    <description>
+        SeeWeather is a wind and weather forecast application
+    </description>
+    <author email="dev@arthurhoek.nl" href="http://arthurhoek.nl/">
+        Arthur Hoek
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="UIWebViewBounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="Orientation" value="default" />
+    <feature name="StatusBar">
+        <param name="ios-package" value="CDVStatusBar" onload="true" />
+    </feature>
+    <feature name="Logger">
+        <param name="ios-package" value="CDVLogger" onload="true" />
+    </feature>
 </widget>
