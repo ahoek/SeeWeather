@@ -1,34 +1,34 @@
 <div class="modal" ng-controller="LocationFormController">
+    <!-- Modal header bar -->
+    <ion-header-bar class="bar-secondary">
+        <h1 class="title">Nieuwe locatie</h1>
+        <button class="button button-clear button-positive" 
+                ng-click="closeNewLocation()">Annuleren</button>
+    </ion-header-bar>
 
-  <!-- Modal header bar -->
-  <ion-header-bar class="bar-secondary">
-    <h1 class="title">Nieuwe locatie</h1>
-    <button class="button button-clear button-positive" ng-click="closeNewLocation()">Annuleren</button>
-  </ion-header-bar>
-
-  <!-- Modal content area -->
-  <ion-content>
-
-    <form ng-submit="createLocation(city)">
-      <div class="list">
-
-        <label class="item item-input">
-          <input type="text" placeholder="Geef een plaatsnaam op" ng-model="city.name">
-        </label>
-        <button type="button" class=" item button button-block" ng-click="getNearbyCities()">
-          Zoek nabije plaatsen
-        </button>
-        <ion-item ng-repeat="nearbyCity in nearbyCities"
-                  ng-click="setCity(nearbyCity)">
-          {{nearbyCity.name}}
-        </ion-item>        
-
-      </div>
-      <div class="padding">
-        <button type="submit" class="button button-block button-positive">Voeg toe</button>
-      </div>
-    </form>
-
-  </ion-content>
-
+    <!-- Modal content area -->
+    <ion-content>
+        <div class="list">
+            <div class="item item-input-inset">
+                <label class="item-input-wrapper">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="search" 
+                           placeholder="Plaatsnaam" 
+                           ng-model="name" 
+                           ng-model-options="{ debounce: 250 }"
+                           ng-change="getCitiesByName(name)">
+                </label>
+                <button type="button" class="button button-small button-clear button-positive" 
+                        ng-click="getNearbyCities()">
+                    <i class="icon ion-navigate"></i>
+                </button>
+            </div>
+        </div>
+        <div class="list">
+            <ion-item ng-repeat="city in cities"
+                      ng-click="createLocation(city)">
+                {{city.name}}<!--, {{city.sys.country}}-->
+            </ion-item>        
+        </div>
+    </ion-content>
 </div>

@@ -9,7 +9,6 @@ angular.module('starter.controllers', [])
     .controller('LocationsController', function ($scope, Locations, $ionicModal, $ionicSideMenuDelegate, $state) {
 
         $scope.locations = Locations.all();
-        //console.log($scope.locations);
 
         // Grab the last active, or the first location
         $scope.activeLocation = $scope.locations[Locations.getLastActiveIndex()];
@@ -96,8 +95,6 @@ angular.module('starter.controllers', [])
                 });
                 // todo: handle failure
             }
-
-            //console.log($scope.location);
         });
 
         $scope.refreshWeather = function () {
@@ -114,13 +111,24 @@ angular.module('starter.controllers', [])
     .controller('LocationFormController', function ($scope, Geo, OpenWeatherMap) {
 
         $scope.getNearbyCities = function () {
+            console.log('getNearbyCities');
             // Get the geo position from the device
             Geo.getLocation().then(function (position) {
-                //console.log(position.coords);
                 // Get the location from openweathermap
-                OpenWeatherMap.findLocation(position.coords).then(function (cities) {
-                    $scope.nearbyCities = cities;
+                OpenWeatherMap.findCitiesNearCoords(position.coords).then(function (cities) {
+                    $scope.cities = cities;
+console.log('nearby', cities);
+                });
+            });
+        };
 
+        $scope.getCitiesByName = function (name) {
+            // Get the geo position from the device
+            Geo.getLocation().then(function (position) {
+                // Get the location from openweathermap
+                OpenWeatherMap.findCitiesWithName(name).then(function (cities) {
+                    $scope.cities = cities;
+console.log('byname', cities);
                 });
             });
         };
