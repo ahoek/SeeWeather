@@ -21,3 +21,56 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+@import "weather-icons";
+@import "animated-background";
+
+.sidemenu-content {
+    background-color: #666;
+}
+
+.sidemenu-item .item-content {
+    background: #999;
+    color: #fff;
+}
+
+.unit {
+    color: #aaa;
+}
+
+// Forecast row
+.weather-item {
+    text-shadow: 0 0 3px rgba(255,255,255,0.8);
+}
+
+.weather-icon {
+    position: absolute;
+    left: 5px;
+    display: inline-block;
+    font-size: 1.6em;
+    line-height: 1em;
+    vertical-align: top;
+}
+
+.temperature {
+    width: 4em;
+    display: inline-block;
+    text-align: right;
+}
+
+.windspeed-bft {
+    width: 2.5em;
+    display: inline-block;
+    text-align: right;
+}
+
+.windspeed-kph {
+    width: 4em;
+    display: inline-block;
+    text-align:right;
+}
+
+.wind-direction {
+    display: inline-block; 
+    -webkit-transform: rotate(135deg); 
+    margin-left: 0.5em;
+}

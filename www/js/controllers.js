@@ -9,7 +9,7 @@ angular.module('starter.controllers', [])
     .controller('LocationsController', function ($scope, Locations, $ionicModal, $ionicSideMenuDelegate, $state) {
 
         $scope.locations = Locations.all();
-        console.log($scope.locations);
+        //console.log($scope.locations);
 
         // Grab the last active, or the first location
         $scope.activeLocation = $scope.locations[Locations.getLastActiveIndex()];
@@ -82,13 +82,22 @@ angular.module('starter.controllers', [])
             return forecastDays;
         };
 
+        // Set to the last active
+        if (!$stateParams.locationId) {
+            $stateParams.locationId = Locations.getLastActiveIndex();
+        }
+        // todo: When still not found, go to the 'add location' controller
+
         Locations.get($stateParams.locationId).then(function (location) {
-            $scope.location = location;
-            if ($scope.location) {
-                OpenWeatherMap.getWeather($scope.location).then(function (weather) {
+            if (location) {
+                $scope.location = location;
+                OpenWeatherMap.getWeather(location).then(function (weather) {
                     $scope.forecastDays = makeGroups(weather.list);
                 });
+                // todo: handle failure
             }
+
+            //console.log($scope.location);
         });
 
         $scope.refreshWeather = function () {
@@ -107,7 +116,7 @@ angular.module('starter.controllers', [])
         $scope.getNearbyCities = function () {
             // Get the geo position from the device
             Geo.getLocation().then(function (position) {
-                console.log(position.coords);
+                //console.log(position.coords);
                 // Get the location from openweathermap
                 OpenWeatherMap.findLocation(position.coords).then(function (cities) {
                     $scope.nearbyCities = cities;

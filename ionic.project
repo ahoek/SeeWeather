@@ -1,6 +1,14 @@
 {
   "name": "SeeWeather",
-  "email": "",
+  "email": "dev@arthurhoek.nl",
   "app_id": "282cff3b",
-  "package_name": ""
+  "package_name": "SeeWeather",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
 }

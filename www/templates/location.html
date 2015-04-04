@@ -1,6 +1,8 @@
 <!--
+Weather forecast for a location
 -->
-<ion-view title="{{location.name}}">
+<ion-view>
+    <ion-nav-title>{{location.name}}</ion-nav-title>
     <ion-content has-header="true" padding="false" overflow-scroll="false">
         <ion-refresher
             on-refresh="refreshWeather()">
@@ -17,18 +19,18 @@
                     <i class="w-{{item.weather[0].icon}}"></i>
                 </span>
 
-                <span style="width:4em;display: inline-block;text-align:right;">
+                <span class="temperature">
                     {{item.main.temp - 273.15| number:0}}<span class="unit">°C</span>
-
                 </span>
-                <span style="width:2.5em;display: inline-block;text-align:right;">
+                <span class="windspeed-bft">
                     <strong>{{item.wind.speed|windspeed:'bft'| number:1 }}</strong>
                 </span>
-                <small style="width:4em;display: inline-block;text-align:right;">
+                <small class="windspeed-kph">
                     {{item.wind.speed|windspeed:'kph'| number:0 }}<span class="unit">km/u</span>
                 </small>
 
-                <i class="ion-navigate" style="display: inline-block; -webkit-transform: rotate({{item.wind.deg - 45 + 180}}deg); margin-left: 0.5em;"></i>
+                <i class="ion-navigate wind-direction"
+                   style="-webkit-transform: rotate({{item.wind.deg - 45 + 180}}deg);"></i>
                 
                 <span class="item-note">
                     {{item.dt * 1000| date:'shortTime'}}
@@ -36,24 +38,5 @@
             </ion-item>
             <div ng-repeat-end></div>
         </ion-list>
-
-
-        <!-- Current weather -->
-        <!--
-      
-        <div class="card">
-          <div class="item item-text-wrap">
-            Wind: {{weather.wind.speed | number}} m/s, {{weather.wind.deg | number}} graden
-          </div>
-        </div>
-        <div class="card">
-          <div class="item item-text-wrap">
-            Temperatuur: {{weather.main.temp | number:2}} K / {{weather.main.temp - 273.15 | number:2}} °C
-          </div>
-        </div>	
-        <div>
-          {{lastRefresh}}
-        </div>
-        -->
     </ion-content>
 </ion-view>
