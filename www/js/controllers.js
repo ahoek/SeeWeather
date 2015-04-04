@@ -6,7 +6,7 @@ angular.module('starter.controllers', [])
     })
 
     // Location overview
-    .controller('LocationsController', function ($scope, Locations, $ionicModal, $ionicSideMenuDelegate) {
+    .controller('LocationsController', function ($scope, Locations, $ionicModal, $ionicSideMenuDelegate, $state) {
 
         $scope.locations = Locations.all();
         console.log($scope.locations);
@@ -54,14 +54,16 @@ angular.module('starter.controllers', [])
         $scope.selectLocation = function (location) {
             $scope.activeLocation = location;
             Locations.setLastActiveIndex(location.id);
+
+            // Show the forecast
+            $state.go('app.location', { locationId: location.id });
+
             $ionicSideMenuDelegate.toggleLeft(false);
         };
     })
 
     // Location forecast detail
     .controller('LocationController', function ($scope, $stateParams, Locations, OpenWeatherMap) {
-        $scope.location = Locations.get($stateParams.locationId);
-
         // Group by day helper function
         var makeGroups = function (weatherList) {
             var forecastDays = {};
@@ -80,17 +82,20 @@ angular.module('starter.controllers', [])
             return forecastDays;
         };
 
-        if ($scope.location) {
-            OpenWeatherMap.getWeather($scope.location).then(function (weather) {
-                $scope.forecastDays = makeGroups(weather.list);
-            });
-        }
+        Locations.get($stateParams.locationId).then(function (location) {
+            $scope.location = location;
+            if ($scope.location) {
+                OpenWeatherMap.getWeather($scope.location).then(function (weather) {
+                    $scope.forecastDays = makeGroups(weather.list);
+                });
+            }
+        });
 
         $scope.refreshWeather = function () {
             OpenWeatherMap.getWeather($scope.location).then(function (weather) {
                 $scope.forecastDays = makeGroups(weather.list);
 
-                //Stop the ion-refresher from spinning
+                // Stop the ion-refresher from spinning
                 $scope.$broadcast('scroll.refreshComplete');
             });
         };

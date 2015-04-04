@@ -18,10 +18,11 @@ angular.module('starter.services', [])
             }
         }
     })
+    
     /**
      * Locations and weather services
      */
-    .factory('Locations', function() {
+    .factory('Locations', function($q) {
 
         return {
             all: function() {
@@ -31,22 +32,22 @@ angular.module('starter.services', [])
                 }
                 return [];
             },
+            
             get: function(locationId) {
-                locationId = parseInt(locationId);
-                var locationsString = window.localStorage['locations'];
-                if (locationsString) {
-                    var locations = angular.fromJson(locationsString);
-                    for (var index = 0; index < locations.length; index++) {
-                        if (locations[index].id === locationId) {
-                            return locations[index];
-                        }
+                var deferred = $q.defer();
+                var locations = this.all();
+                locations.forEach(function(location) {
+                    if (location.id === locationId) {
+                        deferred.resolve(location);
                     }
-                }
-                return {};
+                });
+                return deferred.promise;
             },
+            
             save: function(locations) {
                 window.localStorage['locations'] = angular.toJson(locations);
             },
+            
             // Todo verify location and store location identifier
             newLocation: function(name) {
                 // Add a new location
@@ -55,9 +56,11 @@ angular.module('starter.services', [])
                     id: null
                 };
             },
+            
             getLastActiveIndex: function() {
                 return parseInt(window.localStorage['lastActiveLocation']) || 0;
             },
+            
             setLastActiveIndex: function(id) {
                 window.localStorage['lastActiveLocation'] = id;
             }
@@ -84,13 +87,13 @@ angular.module('starter.services', [])
                     type: 'like',
                     mode: "json"
                 };
-                console.log(params);
+                //console.log(params);
                 $http({
                     method: 'GET',
                     url: url,
                     params: params}).
                     success(function(data, status, headers, config) {
-                        console.log(data, status);
+                        //console.log(data, status);
                         var location = {};
                         if (data.count > 0) {
                             var locations = data.list;
@@ -100,12 +103,13 @@ angular.module('starter.services', [])
                         }
                     }).
                     error(function(data, status, headers, config) {
-                        console.log(data, status);
+                        //console.log(data, status);
                         deferred.reject('Error finding city');
                     });
 
                 return deferred.promise;
             },
+            
             /** 
              * Get the weather forecast
              */

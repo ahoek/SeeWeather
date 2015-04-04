@@ -10,7 +10,6 @@
             <ion-item ng-repeat="location in locations"
                       ng-click="selectLocation(location)" ng-class="{active: activeLocation == location}"
                       type="item-text-wrap" 
-                      ng-href="#/app/location/{{location.id}}"
                       class="item item-icon-right">
                 {{location.name}}
                 <i class="icon ion-chevron-right icon-accessory"></i>
