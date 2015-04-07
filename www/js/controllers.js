@@ -21,16 +21,20 @@ angular.module('starter.controllers', [])
             animation: 'slide-in-up'
         });
 
-        // Called when the form is submitted
-        $scope.createLocation = function (location) {
-            $scope.locations.push({
-                name: location.name,
-                id: location.id
-            });
+        // Create a location from a given city object
+        $scope.createLocation = function (city) {
+            var location = {
+                name: city.name,
+                id: city.id
+            };
+            $scope.locations.push(location);
             Locations.save($scope.locations);
+            
+            $scope.selectLocation(location);
+            
+            // Clean up the modal
             $scope.locationModal.hide();
-            location.name = "";
-            location.id = null;
+            city = null;
         };
 
         // Open our new location modal
@@ -51,13 +55,23 @@ angular.module('starter.controllers', [])
 
         // Called to select the given location
         $scope.selectLocation = function (location) {
+            
+            $ionicSideMenuDelegate.toggleLeft(false);
             $scope.activeLocation = location;
             Locations.setLastActiveIndex(location.id);
 
             // Show the forecast
             $state.go('app.location', { locationId: location.id });
 
-            $ionicSideMenuDelegate.toggleLeft(false);
+        };
+        
+        $scope.shouldShowReorder = false;
+        
+        $scope.moveLocation = function(location, fromIndex, toIndex) {
+            // Move the item in the array
+            $scope.locations.splice(fromIndex, 1);
+            $scope.locations.splice(toIndex, 0, location);
+            Locations.save($scope.locations);
         };
     })
 
@@ -91,6 +105,7 @@ angular.module('starter.controllers', [])
             if (location) {
                 $scope.location = location;
                 OpenWeatherMap.getWeather(location).then(function (weather) {
+                    //console.log(weather);
                     $scope.forecastDays = makeGroups(weather.list);
                 });
                 // todo: handle failure
@@ -111,13 +126,11 @@ angular.module('starter.controllers', [])
     .controller('LocationFormController', function ($scope, Geo, OpenWeatherMap) {
 
         $scope.getNearbyCities = function () {
-            console.log('getNearbyCities');
             // Get the geo position from the device
             Geo.getLocation().then(function (position) {
                 // Get the location from openweathermap
                 OpenWeatherMap.findCitiesNearCoords(position.coords).then(function (cities) {
                     $scope.cities = cities;
-console.log('nearby', cities);
                 });
             });
         };
@@ -128,7 +141,6 @@ console.log('nearby', cities);
                 // Get the location from openweathermap
                 OpenWeatherMap.findCitiesWithName(name).then(function (cities) {
                     $scope.cities = cities;
-console.log('byname', cities);
                 });
             });
         };

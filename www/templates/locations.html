@@ -1,14 +1,22 @@
 <ion-view>
     <ion-header-bar class="bar bar-header bar-dark">
-        <button class="button button-icon ion-plus" ng-click="newLocation()">
+        <button class="button button-icon ion-plus" 
+                ng-click="newLocation()">
         </button>
         <h1 class="title">Plaatsen</h1>
+        <button class="button button-icon ion-navicon" 
+                ng-click="shouldShowReorder = !shouldShowReorder">
+        </button>
     </ion-header-bar>
-    
+
     <ion-content class="has-header">
-        <ion-list option-buttons="itemButtons" can-swipe="true">
+        <ion-list option-buttons="itemButtons" 
+                  can-swipe="true"
+                  show-reorder="shouldShowReorder"
+        >
             <ion-item ng-repeat="location in locations"
-                      ng-click="selectLocation(location)" ng-class="{active: activeLocation == location}"
+                      ng-click="selectLocation(location)" 
+                      ng-class="{active: activeLocation == location}"
                       type="item-text-wrap" 
                       class="item item-icon-right">
                 {{location.name}}
@@ -17,6 +25,9 @@
                                    ng-click="removeLocation(location)">
                     Verwijderen
                 </ion-option-button>
+                <ion-reorder-button class="ion-drag"
+                    on-reorder="moveLocation(location, $fromIndex, $toIndex)">
+                </ion-reorder-button>
             </ion-item>
         </ion-list>
     </ion-content>

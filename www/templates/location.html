@@ -13,7 +13,6 @@ Weather forecast for a location
                 {{day|date:'fullDate'}}
             </div>
             <ion-item ng-repeat="item in weather" class="weather-item">
-
                 <span class="weather-icon">
                     <i class="w-base-{{item.weather[0].icon}}"></i>
                     <i class="w-{{item.weather[0].icon}}"></i>
@@ -29,9 +28,9 @@ Weather forecast for a location
                     {{item.wind.speed|windspeed:'kph'| number:0 }}<span class="unit">km/u</span>
                 </small>
 
-                <i class="ion-navigate wind-direction"
-                   style="-webkit-transform: rotate({{item.wind.deg - 45 + 180}}deg);"></i>
-                
+                <i class="ion-ios-arrow-thin-up wind-direction"
+                   style="-webkit-transform: rotate({{item.wind.deg + 180}}deg);"></i>
+                {{item.wind.direction}}
                 <span class="item-note">
                     {{item.dt * 1000| date:'shortTime'}}
                 </span>

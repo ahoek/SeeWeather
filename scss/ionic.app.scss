@@ -40,15 +40,14 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Forecast row
 .weather-item {
     text-shadow: 0 0 3px rgba(255,255,255,0.8);
+    padding: 0.7em 1.4em 0.7em 0.5em;
 }
 
 .weather-icon {
-    position: absolute;
-    left: 5px;
-    display: inline-block;
-    font-size: 1.6em;
     line-height: 1em;
-    vertical-align: top;
+    font-size: 1.8em;
+    vertical-align: bottom;
+    margin-right: 0.2em;
 }
 
 .temperature {
@@ -70,7 +69,13 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 }
 
 .wind-direction {
-    display: inline-block; 
-    -webkit-transform: rotate(135deg); 
-    margin-left: 0.5em;
+    display: inline-block;
+    vertical-align: middle;
+   // -webkit-transform: rotate(180deg); 
+    margin: 0 0 0 0.5em;
+    font-size: 1.8em;
+}
+
+.item-note {
+    vertical-align: bottom;
 }
