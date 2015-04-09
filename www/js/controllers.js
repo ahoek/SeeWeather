@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('SeeWeather.controllers', [])
     .controller('AppController', function ($scope, $ionicSideMenuDelegate) {
         $scope.toggleLeft = function () {
             $ionicSideMenuDelegate.toggleLeft();

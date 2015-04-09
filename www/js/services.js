@@ -1,4 +1,4 @@
-angular.module('starter.services', [])
+angular.module('SeeWeather.services', [])
     /**
      * Geolocation
      * 

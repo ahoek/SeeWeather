@@ -1,5 +1,5 @@
 
-angular.module('starter.filters', []).filter('windspeed', function() {
+angular.module('SeeWeather.filters', []).filter('windspeed', function() {
 	return function(mps, unit) {
 		switch (unit) {
 			case 'bft':

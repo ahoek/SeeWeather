@@ -1,0 +1,50 @@
+/* Sky background */
+@keyframes blow {
+    from { 
+        transform: translate3d(0,0,0); 
+        -webkit-transform: translate3d(0,0,0); 
+    }
+    to { 
+        transform: translate3d(-80%,0,0); 
+        -webkit-transform: translate3d(-80%,0,0); 
+    } 
+}
+@-webkit-keyframes blow {
+    from { 
+        transform: translate3d(0,0,0); 
+        -webkit-transform: translate3d(0,0,0); 
+    }
+    to { 
+        transform: translate3d(-80%,0,0); 
+        -webkit-transform: translate3d(-80%,0,0); 
+    } 
+}
+
+.weather-item > .background {
+    background-image: url('../img/sky.jpg');
+    background-size: 80%;
+    background-repeat: repeat;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500%;
+    height: 100%;
+    z-index: -1;
+
+}
+.weather-item, .weather-item * {
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+}
+
+.weather-item > .background.moving {
+        
+    //transform: translate3d(0,0,0);
+    //-webkit-transform: translate3d(0,0,0);
+    //    -webkit-backface-visibility: hidden;
+    //    -webkit-perspective: 1000;
+    -webkit-animation: blow 140s linear infinite;
+
+}
+

@@ -1,5 +1,5 @@
 // SeeWeather App
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'starter.filters'])
+angular.module('SeeWeather', ['ionic', 'SeeWeather.controllers', 'SeeWeather.services', 'SeeWeather.filters'])
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
