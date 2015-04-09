@@ -53,11 +53,11 @@ angular.module('SeeWeather.services', [])
                     id: null
                 };
             },
-            getLastActiveIndex: function () {
-                return parseInt(window.localStorage['lastActiveLocation']) || 0;
+            getActiveLocation: function () {
+                return parseInt(window.localStorage['lastActiveLocation']);
             },
-            setLastActiveIndex: function (id) {
-                window.localStorage['lastActiveLocation'] = id;
+            setActiveLocation: function (location) {
+                window.localStorage['lastActiveLocation'] = location;
             }
         };
     })

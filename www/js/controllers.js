@@ -1,3 +1,21 @@
+// Group by day helper function
+var makeGroups = function (weatherList) {
+    var forecastDays = {};
+    var forecastsLength = weatherList.length;
+    var day;
+
+    for (var i = 0; i < forecastsLength; i++) {
+        // Convert timestamp to iso date
+        day = new Date(weatherList[i].dt * 1000).toISOString().replace(/T.+/, '');
+
+        if (!forecastDays[day]) {
+            forecastDays[day] = [];
+        }
+        forecastDays[day].push(weatherList[i]);
+    }
+    return forecastDays;
+};
+
 angular.module('SeeWeather.controllers', [])
     .controller('AppController', function ($scope, $ionicSideMenuDelegate) {
         $scope.toggleLeft = function () {
@@ -11,7 +29,7 @@ angular.module('SeeWeather.controllers', [])
         $scope.locations = Locations.all();
 
         // Grab the last active, or the first location
-        $scope.activeLocation = $scope.locations[Locations.getLastActiveIndex()];
+        $scope.activeLocation = Locations.getActiveLocation();
 
         // Create and load the Modal
         $ionicModal.fromTemplateUrl('templates/new-location.html', function (modal) {
@@ -55,14 +73,12 @@ angular.module('SeeWeather.controllers', [])
 
         // Called to select the given location
         $scope.selectLocation = function (location) {
-            
-            $ionicSideMenuDelegate.toggleLeft(false);
             $scope.activeLocation = location;
-            Locations.setLastActiveIndex(location.id);
+            Locations.setActiveLocation(location);
 
+            $ionicSideMenuDelegate.toggleLeft(false);
             // Show the forecast
             $state.go('app.location', { locationId: location.id });
-
         };
         
         $scope.shouldShowReorder = false;
@@ -76,31 +92,17 @@ angular.module('SeeWeather.controllers', [])
     })
 
     // Location forecast detail
-    .controller('LocationController', function ($scope, $stateParams, Locations, OpenWeatherMap) {
-        // Group by day helper function
-        var makeGroups = function (weatherList) {
-            var forecastDays = {};
-            var forecastsLength = weatherList.length;
-            var day;
-
-            for (var i = 0; i < forecastsLength; i++) {
-                // Convert timestamp to iso date
-                day = new Date(weatherList[i].dt * 1000).toISOString().replace(/T.+/, '');
-
-                if (!forecastDays[day]) {
-                    forecastDays[day] = [];
-                }
-                forecastDays[day].push(weatherList[i]);
-            }
-            return forecastDays;
-        };
-
+    .controller('LocationController', function ($scope, $stateParams, Locations, OpenWeatherMap, $ionicSideMenuDelegate) {
         // Set to the last active
         if (!$stateParams.locationId) {
-            $stateParams.locationId = Locations.getLastActiveIndex();
+            $stateParams.locationId = Locations.getActiveLocation().id;
         }
-        // todo: When still not found, go to the 'add location' controller
-
+        //console.log($stateParams.locationId);
+        // When still not found, go to the 'add location' controller
+        if (!$stateParams.locationId) {
+            $ionicSideMenuDelegate.toggleLeft(true);
+        }
+        
         Locations.get($stateParams.locationId).then(function (location) {
             if (location) {
                 $scope.location = location;
@@ -109,6 +111,8 @@ angular.module('SeeWeather.controllers', [])
                     $scope.forecastDays = makeGroups(weather.list);
                 });
                 // todo: handle failure
+            } else {
+                $stateParams.locationId = 0;
             }
         });
 
