@@ -12,4 +12,8 @@
 /Users/arthurhoek/Developer/SeeWeather/platforms/android/ant-build/classes/org/apache/cordova/geolocation/GeoBroker.class \
 /Users/arthurhoek/Developer/SeeWeather/platforms/android/ant-build/classes/org/apache/cordova/geolocation/GPSListener.class \
 /Users/arthurhoek/Developer/SeeWeather/platforms/android/ant-build/classes/org/apache/cordova/geolocation/NetworkListener.class \
+/Users/arthurhoek/Developer/SeeWeather/platforms/android/ant-build/classes/org/apache/cordova/statusbar/StatusBar$1.class \
+/Users/arthurhoek/Developer/SeeWeather/platforms/android/ant-build/classes/org/apache/cordova/statusbar/StatusBar$2.class \
+/Users/arthurhoek/Developer/SeeWeather/platforms/android/ant-build/classes/org/apache/cordova/statusbar/StatusBar$3.class \
+/Users/arthurhoek/Developer/SeeWeather/platforms/android/ant-build/classes/org/apache/cordova/statusbar/StatusBar.class \
 /Users/arthurhoek/Developer/SeeWeather/platforms/android/ant-build/dexedLibs/classes-49f9ee108e4031cd65b157d62b0e36db.jar \
