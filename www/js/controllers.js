@@ -24,7 +24,7 @@ angular.module('SeeWeather.controllers', [])
     })
 
     // Location overview
-    .controller('LocationsController', function ($scope, Locations, $ionicModal, $ionicSideMenuDelegate, $state) {
+    .controller('LocationsController', function ($scope, Locations, $ionicModal, $ionicSideMenuDelegate) {
 
         $scope.locations = Locations.all();
 
@@ -47,9 +47,9 @@ angular.module('SeeWeather.controllers', [])
             };
             $scope.locations.push(location);
             Locations.save($scope.locations);
-            
+
             $scope.selectLocation(location);
-            
+
             // Clean up the modal
             $scope.locationModal.hide();
             city = null;
@@ -78,12 +78,12 @@ angular.module('SeeWeather.controllers', [])
 
             $ionicSideMenuDelegate.toggleLeft(false);
             // Show the forecast
-            $state.go('app.location', { locationId: location.id });
+            $state.go('app.location');
         };
-        
+
         $scope.shouldShowReorder = false;
-        
-        $scope.moveLocation = function(location, fromIndex, toIndex) {
+
+        $scope.moveLocation = function (location, fromIndex, toIndex) {
             // Move the item in the array
             $scope.locations.splice(fromIndex, 1);
             $scope.locations.splice(toIndex, 0, location);
@@ -92,28 +92,18 @@ angular.module('SeeWeather.controllers', [])
     })
 
     // Location forecast detail
-    .controller('LocationController', function ($scope, $stateParams, Locations, OpenWeatherMap, $ionicSideMenuDelegate) {
-        // Set to the last active
-        if (!$stateParams.locationId) {
-            $stateParams.locationId = Locations.getActiveLocation().id;
-        }
-        //console.log($stateParams.locationId);
-        // When still not found, go to the 'add location' controller
-        if (!$stateParams.locationId) {
-            $ionicSideMenuDelegate.toggleLeft(true);
-        }
-        
-        Locations.get($stateParams.locationId).then(function (location) {
-            if (location) {
-                $scope.location = location;
-                OpenWeatherMap.getWeather(location).then(function (weather) {
-                    //console.log(weather);
-                    $scope.forecastDays = makeGroups(weather.list);
-                });
-                // todo: handle failure
-            } else {
-                $stateParams.locationId = 0;
-            }
+    .controller('LocationController', function ($scope, Locations, OpenWeatherMap) {
+        $scope.spinner = false;
+        $scope.location = Locations.getActiveLocation();
+        $scope.$watch(function () {
+            return Locations.activeLocation
+        }, function () {
+            $scope.location = Locations.getActiveLocation();
+            $scope.spinner = true;
+            OpenWeatherMap.getWeather($scope.location).then(function (weather) {
+                $scope.forecastDays = makeGroups(weather.list);
+                $scope.spinner = false;
+            });
         });
 
         $scope.refreshWeather = function () {
@@ -128,23 +118,26 @@ angular.module('SeeWeather.controllers', [])
 
     // Add location form
     .controller('LocationFormController', function ($scope, Geo, OpenWeatherMap) {
-
         $scope.getNearbyCities = function () {
             // Get the geo position from the device
+            $scope.spinner = true;
             Geo.getLocation().then(function (position) {
                 // Get the location from openweathermap
                 OpenWeatherMap.findCitiesNearCoords(position.coords).then(function (cities) {
                     $scope.cities = cities;
+                    $scope.spinner = false;
                 });
             });
         };
 
         $scope.getCitiesByName = function (name) {
             // Get the geo position from the device
+            $scope.spinner = true;
             Geo.getLocation().then(function (position) {
                 // Get the location from openweathermap
                 OpenWeatherMap.findCitiesWithName(name).then(function (cities) {
                     $scope.cities = cities;
+                    $scope.spinner = false;
                 });
             });
         };

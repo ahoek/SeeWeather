@@ -41,6 +41,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 .weather-item {
     text-shadow: 0 0 3px rgba(255,255,255,0.8);
     padding: 0.7em 1.4em 0.7em 0.5em;
+
+    /*    * {
+            @include transition(all 1s ease-in-out);
+        }*/
 }
 
 .weather-icon {
@@ -71,11 +75,23 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 .wind-direction {
     display: inline-block;
     vertical-align: middle;
-   // -webkit-transform: rotate(180deg); 
+    // -webkit-transform: rotate(180deg); 
     margin: 0 0 0 0.5em;
     font-size: 1.8em;
 }
 
 .item-note {
     vertical-align: bottom;
+}
+
+.centered {
+    display:none;
+    position: fixed;
+    left: 50% - 32px;
+    top: 50% - 32px;
+    z-index: 200;
+    
+    &.spinning {
+        display: block;
+    }
 }

@@ -22,7 +22,7 @@ angular.module('SeeWeather', ['ionic', 'SeeWeather.controllers', 'SeeWeather.ser
             })
 
             .state('app.location', {
-                url: '/location/{locationId:int}',
+                url: '/location',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/location.html',
@@ -36,7 +36,7 @@ angular.module('SeeWeather', ['ionic', 'SeeWeather.controllers', 'SeeWeather.ser
             })
 
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('app/location/0');
+        $urlRouterProvider.otherwise('app/location');
 
     });
 

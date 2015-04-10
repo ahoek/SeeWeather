@@ -7706,7 +7706,10 @@ a.button {
 
 .weather-item {
   text-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
-  padding: 0.7em 1.4em 0.7em 0.5em; }
+  padding: 0.7em 1.4em 0.7em 0.5em;
+  /*    * {
+            @include transition(all 1s ease-in-out);
+        }*/ }
 
 .weather-icon {
   line-height: 1em;
@@ -7737,3 +7740,12 @@ a.button {
 
 .item-note {
   vertical-align: bottom; }
+
+.centered {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 200; }
+  .centered.spinning {
+    display: block; }

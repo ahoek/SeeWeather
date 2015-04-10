@@ -22,9 +22,11 @@ angular.module('SeeWeather.services', [])
     /**
      * Locations and weather services
      */
-    .factory('Locations', function ($q) {
+    .service('Locations', function ($q) {
 
         return {
+            activeLocation: null,
+        
             all: function () {
                 var locationsString = window.localStorage['locations'];
                 if (locationsString) {
@@ -54,10 +56,17 @@ angular.module('SeeWeather.services', [])
                 };
             },
             getActiveLocation: function () {
-                return parseInt(window.localStorage['lastActiveLocation']);
+                var location;
+                if (this.activeLocation) {
+                    location = this.activeLocation;
+                } else {
+                    location = angular.fromJson(window.localStorage['lastActiveLocation']);
+                }
+                return location;
             },
             setActiveLocation: function (location) {
-                window.localStorage['lastActiveLocation'] = location;
+                this.activeLocation = location;
+                window.localStorage['lastActiveLocation'] = angular.toJson(this.activeLocation);
             }
         };
     })
