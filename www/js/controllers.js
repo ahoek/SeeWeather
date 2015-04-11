@@ -92,7 +92,7 @@ angular.module('SeeWeather.controllers', [])
     })
 
     // Location forecast detail
-    .controller('LocationController', function ($scope, $ionicPlatform, Locations, OpenWeatherMap, $cordovaDeviceOrientation) {
+    .controller('LocationController', function ($scope, Locations, OpenWeatherMap, $cordovaDeviceOrientation) {
         $scope.spinner = false;
         $scope.location = Locations.getActiveLocation();
         $scope.$watch(function () {
@@ -115,34 +115,22 @@ angular.module('SeeWeather.controllers', [])
             });
         };
 
+        // Get the compass heading
         $scope.heading = null;
-        
         document.addEventListener("deviceready", function () {
-            //$ionicPlatform.ready(function () {
             var options = {
-                frequency: 3000,
-                filter: true     // if frequency is set, filter is ignored
-            }
-//console.log($cordovaDeviceOrientation.watchHeading)
+                filter: true
+            };
             var watch = $cordovaDeviceOrientation.watchHeading(options).then(
                 null,
                 function (error) {
-                    console.log('error')
-                    // An error occurred
+                    console.log('Error retrieving device orientation');
                 },
-                function (result) {   // updates constantly (depending on frequency value)
-                    var magneticHeading = result.magneticHeading;
-                    //var trueHeading = result.trueHeading;
-                    //var accuracy = result.headingAccuracy;
-                    //var timeStamp = result.timestamp;
+                function (result) {
                     $scope.heading = result.magneticHeading;
                     console.log(result.magneticHeading);
                 });
-            console.log(watch)
-
             //watch.clearWatch();
-
-        //});
         }, false);
     })
 

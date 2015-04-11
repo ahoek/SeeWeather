@@ -3,11 +3,7 @@ angular.module('SeeWeather', ['ionic', 'ngCordova', 'SeeWeather.controllers', 'S
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
-            //ionic.Platform.fullScreen()
-
-            //if (window.StatusBar) {
-            //  StatusBar.hide();
-            //}
+            
         });
     })
 

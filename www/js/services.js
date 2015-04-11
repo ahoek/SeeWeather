@@ -3,7 +3,7 @@ angular.module('SeeWeather.services', [])
      * Geolocation
      * 
      * @param {type} $q
-     * @returns {_L5.Anonym$1}
+     * @returns promise
      */
     .factory('Geo', function ($q) {
         return {
@@ -26,7 +26,6 @@ angular.module('SeeWeather.services', [])
 
         return {
             activeLocation: null,
-        
             all: function () {
                 var locationsString = window.localStorage['locations'];
                 if (locationsString) {
@@ -91,7 +90,7 @@ angular.module('SeeWeather.services', [])
                     type: 'like',
                     mode: "json"
                 };
-                $http({ method:"GET", url: url, params: params }).
+                $http({method: "GET", url: url, params: params}).
                     success(function (data, status, headers, config) {
                         if (data.count > 0) {
                             var locations = data.list;
@@ -118,7 +117,7 @@ angular.module('SeeWeather.services', [])
                     mode: "json"
                 };
                 // @todo allow cancelling
-                $http({ method:"GET", url: url, params: params }).
+                $http({method: "GET", url: url, params: params}).
                     success(function (data, status, headers, config) {
                         console.log(data, status);
                         if (data.count > 0) {
@@ -139,7 +138,7 @@ angular.module('SeeWeather.services', [])
             getWeather: function (location) {
                 var deferred = $q.defer();
                 var url = openWeatherBaseUrl + "/forecast";
-                var params = { APPID: appId };
+                var params = {APPID: appId};
                 if (location.id) {
                     params.id = location.id;
                 } else if (location.name) {
@@ -147,7 +146,7 @@ angular.module('SeeWeather.services', [])
                 } else {
                     deferred.reject('Invalid location object input');
                 }
-                $http({ method: 'GET', url: url, params: params}).
+                $http({method: 'GET', url: url, params: params}).
                     success(function (data, status, headers, config) {
                         deferred.resolve(data);
                     }).
