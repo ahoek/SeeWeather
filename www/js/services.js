@@ -22,16 +22,12 @@ angular.module('SeeWeather.services', [])
     /**
      * Locations and weather services
      */
-    .service('Locations', function ($q) {
+    .service('Locations', function ($q, $localstorage) {
 
         return {
             activeLocation: null,
             all: function () {
-                var locationsString = window.localStorage['locations'];
-                if (locationsString) {
-                    return angular.fromJson(locationsString);
-                }
-                return [];
+                return $localstorage.getObject('locations');
             },
             get: function (locationId) {
                 var deferred = $q.defer();
@@ -44,7 +40,7 @@ angular.module('SeeWeather.services', [])
                 return deferred.promise;
             },
             save: function (locations) {
-                window.localStorage['locations'] = angular.toJson(locations);
+                $localstorage.setObject('locations', locations);
             },
             // Todo verify location and store location identifier
             newLocation: function (name) {
@@ -59,13 +55,13 @@ angular.module('SeeWeather.services', [])
                 if (this.activeLocation) {
                     location = this.activeLocation;
                 } else {
-                    location = angular.fromJson(window.localStorage['lastActiveLocation']);
+                    location = $localstorage.getObject('lastActiveLocation');
                 }
                 return location;
             },
             setActiveLocation: function (location) {
                 this.activeLocation = location;
-                window.localStorage['lastActiveLocation'] = angular.toJson(this.activeLocation);
+                $localstorage.setObject('lastActiveLocation', this.activeLocation);
             }
         };
     })

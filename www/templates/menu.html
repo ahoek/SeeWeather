@@ -3,8 +3,12 @@
         <ion-nav-bar class="bar-positive fade-in">
             <ion-nav-buttons side="left">
                 <button ng-click="toggleLeft()" 
-                        class="button button-icon icon ion-ios-arrow-back">
-                    <!--Plaatsen-->
+                        class="button button-icon icon ion-ios-location">
+                </button>
+            </ion-nav-buttons>
+            <ion-nav-buttons side="right">
+                <button ng-click="showSettings()" 
+                        class="button button-icon icon ion-settings">
                 </button>
             </ion-nav-buttons>
         </ion-nav-bar>
@@ -13,5 +17,8 @@
 
     <ion-side-menu side="left" is-enabled="true" expose-aside-when="large">
         <ion-nav-view name="menuLeft"></ion-nav-view>
+    </ion-side-menu>
+    <ion-side-menu side="right" is-enabled="true">
+        <ion-nav-view name="menuRight"></ion-nav-view>
     </ion-side-menu>
 </ion-side-menus>

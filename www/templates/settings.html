@@ -1,0 +1,53 @@
+<ion-view>
+    <ion-header-bar class="bar bar-header bar-dark">
+        <h1 class="title">Instellingen</h1>
+    </ion-header-bar>
+
+    <ion-content class="has-header">
+        <ion-list>
+            <ion-toggle ng-model="settings.forecast.icon">
+                Weerpictogram
+            </ion-toggle>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Temperatuur
+                </div>
+                <select>
+                    <option>Uit</option>
+                    <option selected>Celcius</option>
+                    <option>Fahrenheit</option>
+                </select>
+            </label>
+
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Windsnelheid hoofd
+                </div>
+                <select>
+                    <option>Uit</option>
+                    <option selected>Bft</option>
+                    <option>km/u</option>
+                    <option>m/s</option>
+                </select>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Windsnelheid 2
+                </div>
+                <select>
+                    <option>Uit</option>
+                    <option>Bft</option>
+                    <option selected>km/u</option>
+                    <option>m/s</option>
+                </select>
+            </label>
+            <ion-toggle ng-model="settings.forecast.windDirection">
+                Windrichting vast
+            </ion-toggle> 
+            <ion-toggle ng-model="settings.forecast.windDirectionReal">
+                Windrichting dynamisch
+            </ion-toggle>
+
+        </ion-list>
+    </ion-content>
+</ion-view>

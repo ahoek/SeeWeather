@@ -21,6 +21,10 @@ angular.module('SeeWeather.controllers', [])
         $scope.toggleLeft = function () {
             $ionicSideMenuDelegate.toggleLeft();
         };
+
+        $scope.showSettings = function () {
+            $ionicSideMenuDelegate.toggleRight();
+        };
     })
 
     // Location overview
@@ -128,7 +132,7 @@ angular.module('SeeWeather.controllers', [])
                 },
                 function (result) {
                     $scope.heading = result.magneticHeading;
-                    console.log(result.magneticHeading);
+                    //console.log(result.magneticHeading);
                 });
             //watch.clearWatch();
         }, false);
@@ -163,6 +167,21 @@ angular.module('SeeWeather.controllers', [])
         $scope.setCity = function (city) {
             $scope.city = city;
         };
-    });
+    })
+    // Add settings
+    .controller('SettingsController', function ($scope) {
+        $scope.settings = {
+            forecast: {
+                icon: true,
+                temperature: "celcius",
+                windSpeedMain: "beaufort",
+                windSpeedSub: "kph",
+                windDirection: true,
+                windDirectionReal: true
+            }
+        };
+    })
+
+    ;
 
 

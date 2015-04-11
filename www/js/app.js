@@ -1,5 +1,5 @@
 // SeeWeather App
-angular.module('SeeWeather', ['ionic', 'ngCordova', 'SeeWeather.controllers', 'SeeWeather.services', 'SeeWeather.filters'])
+angular.module('SeeWeather', ['ionic', 'ionic.utils', 'ngCordova', 'SeeWeather.controllers', 'SeeWeather.services', 'SeeWeather.filters'])
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
@@ -27,6 +27,10 @@ angular.module('SeeWeather', ['ionic', 'ngCordova', 'SeeWeather.controllers', 'S
                     'menuLeft': {
                         templateUrl: 'templates/locations.html',
                         controller: 'LocationsController'
+                    },
+                                        'menuRight': {
+                        templateUrl: 'templates/settings.html',
+                        controller: 'SettingsController'
                     }
                 }
             })
