@@ -8,6 +8,9 @@
         <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="Compass">
+        <param name="android-package" value="org.apache.cordova.deviceorientation.CompassListener" />
+    </feature>
     <name>SeeWeather</name>
     <description>
         SeeWeather is a wind and weather forecast application
@@ -15,7 +18,7 @@
     <author email="dev@arthurhoek.nl" href="http://arthurhoek.nl/">
         Arthur Hoek
     </author>
-    <content original-src="index.html" src="http://192.168.178.11:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="false" />

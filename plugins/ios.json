@@ -31,6 +31,10 @@
                         {
                             "xml": "<preference name=\"StatusBarStyle\" value=\"lightcontent\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Compass\"><param name=\"ios-package\" value=\"CDVCompass\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -40,7 +44,7 @@
                     "CoreLocation.framework": [
                         {
                             "xml": false,
-                            "count": 1
+                            "count": 2
                         }
                     ]
                 }
@@ -68,6 +72,9 @@
             "PACKAGE_NAME": "nl.arthurhoek.seeweather"
         },
         "org.apache.cordova.statusbar": {
+            "PACKAGE_NAME": "nl.arthurhoek.seeweather"
+        },
+        "org.apache.cordova.device-orientation": {
             "PACKAGE_NAME": "nl.arthurhoek.seeweather"
         }
     },

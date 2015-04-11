@@ -24,7 +24,7 @@ angular.module('SeeWeather.controllers', [])
     })
 
     // Location overview
-    .controller('LocationsController', function ($scope, Locations, $ionicModal, $ionicSideMenuDelegate) {
+    .controller('LocationsController', function ($scope, $state, Locations, $ionicModal, $ionicSideMenuDelegate) {
 
         $scope.locations = Locations.all();
 
@@ -92,7 +92,7 @@ angular.module('SeeWeather.controllers', [])
     })
 
     // Location forecast detail
-    .controller('LocationController', function ($scope, Locations, OpenWeatherMap) {
+    .controller('LocationController', function ($scope, $ionicPlatform, Locations, OpenWeatherMap, $cordovaDeviceOrientation) {
         $scope.spinner = false;
         $scope.location = Locations.getActiveLocation();
         $scope.$watch(function () {
@@ -114,6 +114,36 @@ angular.module('SeeWeather.controllers', [])
                 $scope.$broadcast('scroll.refreshComplete');
             });
         };
+
+        $scope.heading = null;
+        
+        document.addEventListener("deviceready", function () {
+            //$ionicPlatform.ready(function () {
+            var options = {
+                frequency: 3000,
+                filter: true     // if frequency is set, filter is ignored
+            }
+//console.log($cordovaDeviceOrientation.watchHeading)
+            var watch = $cordovaDeviceOrientation.watchHeading(options).then(
+                null,
+                function (error) {
+                    console.log('error')
+                    // An error occurred
+                },
+                function (result) {   // updates constantly (depending on frequency value)
+                    var magneticHeading = result.magneticHeading;
+                    //var trueHeading = result.trueHeading;
+                    //var accuracy = result.headingAccuracy;
+                    //var timeStamp = result.timestamp;
+                    $scope.heading = result.magneticHeading;
+                    console.log(result.magneticHeading);
+                });
+            console.log(watch)
+
+            //watch.clearWatch();
+
+        //});
+        }, false);
     })
 
     // Add location form

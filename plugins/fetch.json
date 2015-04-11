@@ -22,5 +22,11 @@
             "type": "registry",
             "id": "org.apache.cordova.statusbar"
         }
+    },
+    "org.apache.cordova.device-orientation": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.device-orientation"
+        }
     }
 }
