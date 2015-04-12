@@ -1,13 +1,13 @@
 // SeeWeather App
-angular.module('SeeWeather', ['ionic', 'ionic.utils', 'ngCordova', 'SeeWeather.controllers', 'SeeWeather.services', 'SeeWeather.filters'])
+angular.module('SeeWeather', ['ionic', 'LocalStorageModule', 'ngCordova', 'SeeWeather.controllers', 'SeeWeather.services', 'SeeWeather.filters'])
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
-            
+
         });
     })
 
-    .config(function ($stateProvider, $urlRouterProvider) {
+    .config(function ($stateProvider, $urlRouterProvider, localStorageServiceProvider) {
 
         $stateProvider
             .state('app', {
@@ -28,15 +28,18 @@ angular.module('SeeWeather', ['ionic', 'ionic.utils', 'ngCordova', 'SeeWeather.c
                         templateUrl: 'templates/locations.html',
                         controller: 'LocationsController'
                     },
-                                        'menuRight': {
+                    'menuRight': {
                         templateUrl: 'templates/settings.html',
                         controller: 'SettingsController'
                     }
                 }
-            })
+            });
 
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('app/location');
 
+        localStorageServiceProvider
+            .setPrefix('SeeWeather')
+            .setNotify(true, true);
     });
 

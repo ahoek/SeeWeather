@@ -96,8 +96,16 @@ angular.module('SeeWeather.controllers', [])
     })
 
     // Location forecast detail
-    .controller('LocationController', function ($scope, Locations, OpenWeatherMap, $cordovaDeviceOrientation) {
+    .controller('LocationController', function ($scope, Locations, OpenWeatherMap, $cordovaDeviceOrientation, localStorageService) {
         $scope.spinner = false;
+    
+        $scope.settings = localStorageService.get('settings');
+        $scope.$watch(function () {
+            return angular.toJson(localStorageService.get('settings'));
+        }, function () {
+            $scope.settings = localStorageService.get('settings');
+        });
+        
         $scope.location = Locations.getActiveLocation();
         $scope.$watch(function () {
             return Locations.activeLocation
@@ -120,6 +128,7 @@ angular.module('SeeWeather.controllers', [])
         };
 
         // Get the compass heading
+        // fix: only if phone is held horizontally
         $scope.heading = null;
         document.addEventListener("deviceready", function () {
             var options = {
@@ -169,17 +178,22 @@ angular.module('SeeWeather.controllers', [])
         };
     })
     // Add settings
-    .controller('SettingsController', function ($scope) {
-        $scope.settings = {
-            forecast: {
-                icon: true,
-                temperature: "celcius",
-                windSpeedMain: "beaufort",
-                windSpeedSub: "kph",
-                windDirection: true,
-                windDirectionReal: true
-            }
-        };
+    // todo: move to settings service
+    .controller('SettingsController', function ($scope, localStorageService) {
+        if (!localStorageService.get('settings')) {
+            localStorageService.set('settings', {
+                forecast: {
+                    icon: true,
+                    temperature: "celcius",
+                    windSpeedMain: "beaufort",
+                    windSpeedSub: "kph",
+                    windDirection: true,
+                    windDirectionReal: true
+                }
+            });
+        }        
+        localStorageService.bind($scope, 'settings');
+
     })
 
     ;

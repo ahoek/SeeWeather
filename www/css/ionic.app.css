@@ -7704,48 +7704,52 @@ a.button {
 .unit {
   color: #aaa; }
 
+.item-divider {
+  font-size: 0.95em;
+  padding-top: 6px;
+  padding-bottom: 6px; }
+
 .weather-item {
   text-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
-  padding: 0.7em 1.4em 0.7em 0.5em;
-  /*    * {
-            @include transition(all 1s ease-in-out);
-        }*/ }
+  padding: 0.5em 1.4em 0.5em 0.5em; }
+  .weather-item > * {
+    display: inline-block;
+    margin-right: 0.1em; }
 
 .weather-icon {
   line-height: 1em;
-  font-size: 1.8em;
-  vertical-align: bottom;
-  margin-right: 0.2em; }
+  height: 1em;
+  width: 1em;
+  font-size: 2.2em;
+  vertical-align: middle;
+  margin-right: 0.1em; }
 
 .temperature {
-  width: 4em;
-  display: inline-block;
+  width: 2.5em;
   text-align: right; }
 
 .windspeed-bft {
-  width: 2.5em;
-  display: inline-block;
+  width: 2.1em;
   text-align: right; }
 
 .windspeed-kph {
   width: 4em;
-  display: inline-block;
   text-align: right; }
 
 .wind-direction {
-  display: inline-block;
+  width: 1em;
+  text-align: center;
   vertical-align: middle;
-  margin: 0 0 0 0.5em;
   font-size: 1.8em; }
 
 .item-note {
-  vertical-align: bottom; }
+  vertical-align: middle; }
 
 .centered {
   display: none;
   position: fixed;
-  left: 50%;
-  top: 50%;
+  left: calc(50% - 32px);
+  top: calc(50% - 32px);
   z-index: 200; }
   .centered.spinning {
     display: block; }
