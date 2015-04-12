@@ -8,4 +8,4 @@ platforms/android
 www/npm-debug.log
 www/js/settings.js
 www/lib
-
+www/css/*.css
