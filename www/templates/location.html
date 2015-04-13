@@ -21,14 +21,16 @@ Weather forecast for a location
                     <i class="w-{{item.weather[0].icon}}"></i>
                 </span>
 
-                <span class="temperature">
-                    {{item.main.temp - 273.15| number:0}}<span class="unit">°C</span>
+                <span ng-if="settings.forecast.temperature" class="temperature">
+                    <span>{{item.main.temp|temperature:settings.forecast.temperature| number:0}}</span><span class="unit">{{settings.forecast.temperature|unit}}
+                    </span>
                 </span>
-                <span class="windspeed-bft">
-                    <strong>{{item.wind.speed|windspeed:'bft'| number:1 }}</strong>
+                <span ng-if="settings.forecast.windSpeedPrimary" class="windspeed-primary">
+                    <strong>{{item.wind.speed|windspeed:settings.forecast.windSpeedPrimary| number:1 }}</strong>
                 </span>
-                <small class="windspeed-kph">
-                    {{item.wind.speed|windspeed:'kph'| number:0 }}<span class="unit">km/u</span>
+                <small ng-if="settings.forecast.windSpeedSecundary" class="windspeed-secundary">
+                    {{item.wind.speed|windspeed:settings.forecast.windSpeedSecundary| number:0 }}<span class="unit">{{settings.forecast.windSpeedSecundary|unit}}
+                    </span>
                 </small>
 
                 <i ng-if="settings.forecast.windDirection" class="ion-ios-arrow-thin-up wind-direction"

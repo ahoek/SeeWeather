@@ -98,14 +98,14 @@ angular.module('SeeWeather.controllers', [])
     // Location forecast detail
     .controller('LocationController', function ($scope, Locations, OpenWeatherMap, $cordovaDeviceOrientation, localStorageService) {
         $scope.spinner = false;
-    
+
         $scope.settings = localStorageService.get('settings');
         $scope.$watch(function () {
             return angular.toJson(localStorageService.get('settings'));
         }, function () {
             $scope.settings = localStorageService.get('settings');
         });
-        
+
         $scope.location = Locations.getActiveLocation();
         $scope.$watch(function () {
             return Locations.activeLocation
@@ -185,15 +185,27 @@ angular.module('SeeWeather.controllers', [])
                 forecast: {
                     icon: true,
                     temperature: "celcius",
-                    windSpeedMain: "beaufort",
-                    windSpeedSub: "kph",
+                    windSpeedPrimary: "bft",
+                    windSpeedSecundary: "kph",
                     windDirection: true,
                     windDirectionReal: true
                 }
             });
-        }        
+        }
         localStorageService.bind($scope, 'settings');
 
+        $scope.temperatureOptions = [
+            {description: 'Uit', value: false},
+            {description: 'Celsius', value: "celsius"},
+            {description: 'Fahrenheit', value: "fahrenheit"},
+        ];
+        
+        $scope.windspeedOptions = [
+            {description: 'Uit', value: false},
+            {description: 'Bft', value: "bft"},
+            {description: 'km/u', value: "kph"},
+            {description: 'm/s', value: "mps"}
+        ];
     })
 
     ;

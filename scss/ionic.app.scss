@@ -71,12 +71,12 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     text-align: right;
 }
 
-.windspeed-bft {
+.windspeed-primary {
     width: 2.1em;
     text-align: right;
 }
 
-.windspeed-kph {
+.windspeed-secundary {
     width: 4em;
     text-align:right;
 }
@@ -96,8 +96,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 .centered {
     display: none;
     position: fixed;
-    left: calc(50% - 32px);
-    top: calc(50% - 32px);
+    left: calc(50% - 16px);
+    top: calc(50% - 16px);
     z-index: 200;
 
     &.spinning {

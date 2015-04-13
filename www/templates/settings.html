@@ -12,33 +12,25 @@
                 <div class="input-label">
                     Temperatuur
                 </div>
-                <select>
-                    <option>Uit</option>
-                    <option selected>Celcius</option>
-                    <option>Fahrenheit</option>
+                <select ng-model="settings.forecast.temperature"
+                        ng-options="option.value as option.description for option in temperatureOptions">
                 </select>
             </label>
 
             <label class="item item-input item-select">
                 <div class="input-label">
-                    Windsnelheid hoofd
+                    Snelheid primair
                 </div>
-                <select>
-                    <option>Uit</option>
-                    <option selected>Bft</option>
-                    <option>km/u</option>
-                    <option>m/s</option>
+                <select ng-model="settings.forecast.windSpeedPrimary"
+                        ng-options="option.value as option.description for option in windspeedOptions">
                 </select>
             </label>
             <label class="item item-input item-select">
                 <div class="input-label">
-                    Windsnelheid 2
+                    Snelheid secundair
                 </div>
-                <select>
-                    <option>Uit</option>
-                    <option>Bft</option>
-                    <option selected>km/u</option>
-                    <option>m/s</option>
+                <select ng-model="settings.forecast.windSpeedSecundary"
+                        ng-options="option.value as option.description for option in windspeedOptions">
                 </select>
             </label>
             <ion-toggle ng-model="settings.forecast.windDirection">
