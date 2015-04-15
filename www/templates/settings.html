@@ -5,10 +5,14 @@
 
     <ion-content class="has-header">
         <ion-list>
-            <ion-toggle ng-model="settings.forecast.icon">
+            <ion-toggle ng-model="settings.forecast.icon"
+                        class="item item-icon-left">
+                <i class="icon ion-ios-partlysunny"></i>
                 Weerpictogram
             </ion-toggle>
-            <label class="item item-input item-select">
+
+            <label class="item item-input item-select item-icon-left" style="padding-left: 54px;">
+                <i class="icon ion-thermometer"></i>
                 <div class="input-label">
                     Temperatuur
                 </div>
@@ -17,29 +21,43 @@
                 </select>
             </label>
 
-            <label class="item item-input item-select">
+            <label class="item item-input item-select item-icon-left"  style="padding-left: 54px;">
+                <i class="icon ion-speedometer"></i>
                 <div class="input-label">
-                    Snelheid primair
+                    Snelheid 1
                 </div>
                 <select ng-model="settings.forecast.windSpeedPrimary"
                         ng-options="option.value as option.description for option in windspeedOptions">
                 </select>
             </label>
-            <label class="item item-input item-select">
+
+            <label class="item item-input item-select item-icon-left"  style="padding-left: 54px;">
+                <i class="icon ion-speedometer"></i>
                 <div class="input-label">
-                    Snelheid secundair
+                    Snelheid 2
                 </div>
                 <select ng-model="settings.forecast.windSpeedSecundary"
                         ng-options="option.value as option.description for option in windspeedOptions">
                 </select>
             </label>
-            <ion-toggle ng-model="settings.forecast.windDirection">
-                Windrichting vast
+
+            <ion-toggle ng-model="settings.forecast.windDirection"
+                        class="item item-icon-left"                        >
+                <i class="icon ion-ios-arrow-thin-up"></i>
+                Richting vast
             </ion-toggle> 
-            <ion-toggle ng-model="settings.forecast.windDirectionReal">
-                Windrichting dynamisch
+
+            <ion-toggle ng-model="settings.forecast.windDirectionReal"
+                        class="item item-icon-left"                        >
+                <i class="icon ion-android-navigate"></i>
+                Richting dynamisch
             </ion-toggle>
 
+            <ion-toggle ng-model="settings.locations.showCurrentLocation"
+                        class="item item-icon-left"                        >
+                <i class="icon ion-ios-navigate"></i>
+                Toon huidige locatie
+            </ion-toggle>
         </ion-list>
     </ion-content>
 </ion-view>

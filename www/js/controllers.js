@@ -28,7 +28,7 @@ angular.module('SeeWeather.controllers', [])
     })
 
     // Location overview
-    .controller('LocationsController', function ($scope, $state, Locations, $ionicModal, $ionicSideMenuDelegate) {
+    .controller('LocationsController', function ($scope, $state, Locations, $ionicModal, $ionicSideMenuDelegate, Geo, OpenWeatherMap, localStorageService) {
 
         $scope.locations = Locations.all();
 
@@ -83,6 +83,27 @@ angular.module('SeeWeather.controllers', [])
             $ionicSideMenuDelegate.toggleLeft(false);
             // Show the forecast
             $state.go('app.location');
+        };
+
+        $scope.settings = localStorageService.get('settings');
+        $scope.$watch(function () {
+            return angular.toJson(localStorageService.get('settings'));
+        }, function () {
+            $scope.settings = localStorageService.get('settings');
+        });
+
+        Geo.getLocation().then(function (position) {
+            // Get the location from openweathermap
+            OpenWeatherMap.findCitiesNearCoords(position.coords).then(function (cities) {
+                $scope.currentLocation = cities[0];
+                if (!$scope.activeLocation) {
+                    $scope.selectCurrentLocation();
+                }
+            });
+        });
+
+        $scope.selectCurrentLocation = function () {
+            $scope.selectLocation($scope.currentLocation);
         };
 
         $scope.shouldShowReorder = false;
@@ -188,7 +209,10 @@ angular.module('SeeWeather.controllers', [])
                     windSpeedPrimary: "bft",
                     windSpeedSecundary: "kph",
                     windDirection: true,
-                    windDirectionReal: true
+                    windDirectionReal: true,
+                },
+                locations: {
+                    showCurrentLocation: true
                 }
             });
         }
@@ -197,9 +221,9 @@ angular.module('SeeWeather.controllers', [])
         $scope.temperatureOptions = [
             {description: 'Uit', value: false},
             {description: 'Celsius', value: "celsius"},
-            {description: 'Fahrenheit', value: "fahrenheit"},
+            {description: 'Fahrenheit', value: "fahrenheit"}
         ];
-        
+
         $scope.windspeedOptions = [
             {description: 'Uit', value: false},
             {description: 'Bft', value: "bft"},
