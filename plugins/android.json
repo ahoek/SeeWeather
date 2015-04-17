@@ -19,6 +19,10 @@
                         {
                             "xml": "<feature name=\"Compass\"><param name=\"android-package\" value=\"org.apache.cordova.deviceorientation.CompassListener\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Globalization\"><param name=\"android-package\" value=\"org.apache.cordova.globalization.Globalization\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -53,6 +57,9 @@
             "PACKAGE_NAME": "nl.arthurhoek.seeweather"
         },
         "org.apache.cordova.device-orientation": {
+            "PACKAGE_NAME": "nl.arthurhoek.seeweather"
+        },
+        "org.apache.cordova.globalization": {
             "PACKAGE_NAME": "nl.arthurhoek.seeweather"
         }
     },

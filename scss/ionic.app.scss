@@ -104,3 +104,24 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
         display: block;
     }
 }
+
+.settings {
+    .item {
+        height: 53px;
+    }
+    .item span, .input-label {
+        font-size: 90%;
+    }
+    
+    .icon {
+        font-size: 26px;
+        color: $positive;
+    }
+    .item-icon-left {
+        padding-left: 48px;
+    }
+    
+    select {
+        font-size: 12px;
+    }
+}

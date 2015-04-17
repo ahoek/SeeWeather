@@ -19,7 +19,8 @@
     "org.apache.cordova.console",
     "org.apache.cordova.geolocation",
     "org.apache.cordova.statusbar",
-    "org.apache.cordova.device-orientation"
+    "org.apache.cordova.device-orientation",
+    "org.apache.cordova.globalization"
   ],
   "cordovaPlatforms": [
     "ios",

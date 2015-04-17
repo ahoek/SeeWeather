@@ -1,4 +1,4 @@
-<ion-view>
+<ion-view class="settings">
     <ion-header-bar class="bar bar-header bar-dark">
         <h1 class="title">Instellingen</h1>
     </ion-header-bar>
@@ -11,7 +11,7 @@
                 Weerpictogram
             </ion-toggle>
 
-            <label class="item item-input item-select item-icon-left" style="padding-left: 54px;">
+            <label class="item item-input item-select item-icon-left">
                 <i class="icon ion-thermometer"></i>
                 <div class="input-label">
                     Temperatuur
@@ -21,7 +21,7 @@
                 </select>
             </label>
 
-            <label class="item item-input item-select item-icon-left"  style="padding-left: 54px;">
+            <label class="item item-input item-select item-icon-left"">
                 <i class="icon ion-speedometer"></i>
                 <div class="input-label">
                     Snelheid 1
@@ -31,7 +31,7 @@
                 </select>
             </label>
 
-            <label class="item item-input item-select item-icon-left"  style="padding-left: 54px;">
+            <label class="item item-input item-select item-icon-left">
                 <i class="icon ion-speedometer"></i>
                 <div class="input-label">
                     Snelheid 2
@@ -42,25 +42,25 @@
             </label>
 
             <ion-toggle ng-model="settings.forecast.windDirection"
-                        class="item item-icon-left"                        >
+                        class="item item-icon-left">
                 <i class="icon ion-ios-arrow-thin-up"></i>
                 Richting vast
             </ion-toggle> 
 
             <ion-toggle ng-model="settings.forecast.windDirectionReal"
-                        class="item item-icon-left"                        >
+                        class="item item-icon-left">
                 <i class="icon ion-android-navigate"></i>
                 Richting dynamisch
             </ion-toggle>
 
             <ion-toggle ng-model="settings.locations.showCurrentLocation"
-                        class="item item-icon-left"                        >
+                        class="item item-icon-left">
                 <i class="icon ion-ios-navigate"></i>
                 Toon huidige locatie
             </ion-toggle>
         </ion-list>
 
-        <label class="item item-input item-select item-icon-left" style="padding-left: 54px;">
+        <label class="item item-input item-select item-icon-left">
             <i class="icon ion-chatboxes"></i>
             <div class="input-label">
                 Taal

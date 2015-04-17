@@ -4,7 +4,7 @@ platforms/ios/www
 platforms/ios/cordova
 platforms/ios/SeeWeather/Plugins
 platforms/android
-nbproject/private/
+nbproject/
 www/npm-debug.log
 www/js/settings.js
 www/lib

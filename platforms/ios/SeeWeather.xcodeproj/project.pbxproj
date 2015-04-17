@@ -46,6 +46,7 @@
 		C7C2BC8312734021828892BE /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD518C054484D53965505C6 /* CDVLocation.m */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		C92C83121954435187E3A4F0 /* CDVCompass.m in Sources */ = {isa = PBXBuildFile; fileRef = 9764A05353B74711A6FED004 /* CDVCompass.m */; };
+		305AEC73A73F4FBA959AF43E /* CDVGlobalization.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB447FED9FB40E28040F1F0 /* CDVGlobalization.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,8 @@
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = SeeWeather/config.xml; sourceTree = "<group>"; };
 		9764A05353B74711A6FED004 /* CDVCompass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVCompass.m"; path = "org.apache.cordova.device-orientation/CDVCompass.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		4CE6913059594CF3B1DD0A75 /* CDVCompass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVCompass.h"; path = "org.apache.cordova.device-orientation/CDVCompass.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		AAB447FED9FB40E28040F1F0 /* CDVGlobalization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVGlobalization.m"; path = "org.apache.cordova.globalization/CDVGlobalization.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		902AD27970A04C2F95F3D47C /* CDVGlobalization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVGlobalization.h"; path = "org.apache.cordova.globalization/CDVGlobalization.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +235,8 @@
 				A64EECE91CB14A36BA7BC7A7 /* CDVStatusBar.h */,
 				9764A05353B74711A6FED004 /* CDVCompass.m */,
 				4CE6913059594CF3B1DD0A75 /* CDVCompass.h */,
+				AAB447FED9FB40E28040F1F0 /* CDVGlobalization.m */,
+				902AD27970A04C2F95F3D47C /* CDVGlobalization.h */,
 			);
 			name = Plugins;
 			path = SeeWeather/Plugins;
@@ -422,6 +427,7 @@
 				C7C2BC8312734021828892BE /* CDVLocation.m in Sources */,
 				841B8FB36D554415877FDC30 /* CDVStatusBar.m in Sources */,
 				C92C83121954435187E3A4F0 /* CDVCompass.m in Sources */,
+				305AEC73A73F4FBA959AF43E /* CDVGlobalization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
