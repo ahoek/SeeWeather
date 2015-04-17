@@ -7,7 +7,7 @@ controllers.controller('LocationFormController', function ($scope, $cordovaGeolo
         // Get the geo position from the device
         $scope.spinner = true;
         $cordovaGeolocation.getCurrentPosition().then(function (position) {
-            // Get the location from openweathermap
+            // Get the locations from openweathermap
             OpenWeatherMap.findCitiesNearCoords(position.coords).then(function (cities) {
                 $scope.cities = cities;
                 $scope.spinner = false;
@@ -17,11 +17,12 @@ controllers.controller('LocationFormController', function ($scope, $cordovaGeolo
 
     /**
      * List cities by search query on name
-     * @param string name
+     * 
+     * @param string name Search query
      */
     $scope.getCitiesByName = function (name) {
         $scope.spinner = true;
-        // Get the location from openweathermap
+        // Get the locations from openweathermap
         OpenWeatherMap.findCitiesWithName(name).then(function (cities) {
             $scope.cities = cities;
             $scope.spinner = false;
