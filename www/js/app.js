@@ -9,7 +9,7 @@ angular.module('SeeWeather', [
 ])
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
-
+            console.log(navigator.language);
         });
     })
 

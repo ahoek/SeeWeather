@@ -1,4 +1,3 @@
-
 // Add settings
 // todo: move to settings service
 controllers.controller('SettingsController', function ($scope, localStorageService) {
@@ -10,10 +9,13 @@ controllers.controller('SettingsController', function ($scope, localStorageServi
                 windSpeedPrimary: "bft",
                 windSpeedSecundary: "kph",
                 windDirection: true,
-                windDirectionReal: true,
+                windDirectionReal: true
             },
             locations: {
                 showCurrentLocation: true
+            },
+            general: {
+                language: navigator.language
             }
         });
     }
@@ -31,8 +33,11 @@ controllers.controller('SettingsController', function ($scope, localStorageServi
         {description: 'km/u', value: "kph"},
         {description: 'm/s', value: "mps"}
     ];
-})
 
-    ;
+    $scope.languageOptions = [
+        {description: 'Nederlands', value: "nl"},
+        {description: 'English', value: "en"}
+    ];
+});
 
 

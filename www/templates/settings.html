@@ -59,5 +59,16 @@
                 Toon huidige locatie
             </ion-toggle>
         </ion-list>
+
+        <label class="item item-input item-select item-icon-left" style="padding-left: 54px;">
+            <i class="icon ion-chatboxes"></i>
+            <div class="input-label">
+                Taal
+            </div>
+            <select ng-model="settings.general.language"
+                    ng-options="option.value as option.description for option in languageOptions">
+            </select>
+        </label>
+
     </ion-content>
 </ion-view>
