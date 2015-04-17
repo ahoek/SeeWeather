@@ -1,6 +1,5 @@
 // Add location form
 controllers.controller('LocationFormController', function ($scope, $cordovaGeolocation, OpenWeatherMap) {
-    
     /**
      * List cities near the GPS location
      */

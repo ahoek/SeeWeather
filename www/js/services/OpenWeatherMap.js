@@ -33,7 +33,7 @@ services.factory('OpenWeatherMap', function ($q, $http) {
 
             return deferred.promise;
         },
-        // Find cities near geo coordinates
+        // Find cities with name
         findCitiesWithName: function (name) {
             var deferred = $q.defer();
             var url = openWeatherBaseUrl + "/find";
@@ -61,7 +61,7 @@ services.factory('OpenWeatherMap', function ($q, $http) {
             return deferred.promise;
         },
         /** 
-         * Get the weather forecast
+         * Get the weather forecast by city id or name
          */
         getWeather: function (location) {
             var deferred = $q.defer();
@@ -75,10 +75,10 @@ services.factory('OpenWeatherMap', function ($q, $http) {
                 deferred.reject('Invalid location object input');
             }
             $http({method: 'GET', url: url, params: params}).
-                success(function (data, status, headers, config) {
+                success(function (data) {
                     deferred.resolve(data);
                 }).
-                error(function (data, status, headers, config) {
+                error(function () {
                     deferred.reject('Error retrieving weather forecast');
                 });
             return deferred.promise;

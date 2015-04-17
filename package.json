@@ -1,6 +1,6 @@
 {
   "name": "SeeWeather",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.1",
   "description": "SeeWeather",
   "dependencies": {
     "gulp": "^3.5.6",
@@ -14,8 +14,24 @@
     "gulp-util": "^2.2.14",
     "shelljs": "^0.3.0"
   },
-  "cordovaPlugins": [],
+  "cordovaPlugins": [
+    "org.apache.cordova.device",
+    "org.apache.cordova.console",
+    "org.apache.cordova.geolocation",
+    "org.apache.cordova.statusbar",
+    "org.apache.cordova.device-orientation"
+  ],
   "cordovaPlatforms": [
-    "ios"
+    "ios",
+    {
+      "platform": "android",
+      "version": "3.7.1",
+      "locator": "android"
+    },
+    {
+      "platform": "ios",
+      "version": "3.8.0",
+      "locator": "ios"
+    }
   ]
 }

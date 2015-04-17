@@ -2,10 +2,10 @@
   "name": "SeeWeather",
   "private": "true",
   "devDependencies": {
-    "ionic": "driftyco/ionic-bower#1.0.0-rc.3"
+    "ionic": "driftyco/ionic-bower#1.0.0-rc.3",
+    "ngCordova": "~0.1.14-alpha",
+    "angular-local-storage": "~0.1.5"
   },
   "dependencies": {
-    "angular-local-storage": "~0.1.5",
-    "ngCordova": "~0.1.14-alpha"
   }
 }
