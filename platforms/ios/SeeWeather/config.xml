@@ -32,6 +32,9 @@
     <feature name="Compass">
         <param name="ios-package" value="CDVCompass" />
     </feature>
+    <feature name="Globalization">
+        <param name="ios-package" value="CDVGlobalization" />
+    </feature>
     <icon height="57" src="resources/ios/icon/icon.png" width="57" />
     <icon height="114" src="resources/ios/icon/icon@2x.png" width="114" />
     <icon height="40" src="resources/ios/icon/icon-40.png" width="40" />
@@ -65,7 +68,7 @@
     <author email="dev@arthurhoek.nl" href="http://arthurhoek.nl/">
         Arthur Hoek
     </author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.178.24:8100" />
     <access origin="*" />
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="false" />
@@ -74,7 +77,4 @@
     <preference name="Orientation" value="default" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
-    <feature name="Globalization">
-        <param name="ios-package" value="CDVGlobalization" />
-    </feature>
 </widget>

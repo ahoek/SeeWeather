@@ -5,7 +5,7 @@ controllers.controller('SettingsController', function ($scope, localStorageServi
         localStorageService.set('settings', {
             forecast: {
                 icon: true,
-                temperature: "celcius",
+                temperature: "celsius",
                 windSpeedPrimary: "bft",
                 windSpeedSecundary: "kph",
                 windDirection: true,

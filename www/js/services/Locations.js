@@ -22,6 +22,9 @@ services.service('Locations', function (
             } else {
                 location = localStorageService.get('lastActiveLocation');
             }
+            //if (!location) {
+            //    location = {};
+            //}
             return location;
         },
         setActiveLocation: function (location) {
