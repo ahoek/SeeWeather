@@ -4,9 +4,7 @@ Weather forecast for a location
 <ion-view>
     <ion-spinner ng-class="{'spinning': spinner}" class="centered"></ion-spinner>
     <ion-nav-title>{{location.name}}</ion-nav-title>
-    <ion-content
-        has-header="true" 
-        padding="false" overflow-scroll="false">
+    <ion-content has-header="true" padding="false">
         <ion-refresher
             on-refresh="refreshWeather()">
         </ion-refresher>
