@@ -3,10 +3,10 @@
  */
 app.controllers.controller('AppController', function ($scope, $ionicSideMenuDelegate) {
     $scope.toggleLeft = function () {
-        $ionicSideMenuDelegate.toggleLeft();
-    };
+        $ionicSideMenuDelegate.toggleLeft()
+    }
 
     $scope.showSettings = function () {
-        $ionicSideMenuDelegate.toggleRight();
-    };
-});
+        $ionicSideMenuDelegate.toggleRight()
+    }
+})

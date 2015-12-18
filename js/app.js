@@ -9,7 +9,7 @@ angular.module('SeeWeather', [
 ])
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
-            //console.log(navigator.language);
+            //console.log(navigator.language)
         });
     })
 
@@ -45,10 +45,10 @@ angular.module('SeeWeather', [
 
         localStorageServiceProvider
             .setPrefix('SeeWeather')
-            .setNotify(true, true);
-    });
+            .setNotify(true, true)
+    })
 
 var app = {
     controllers: angular.module('SeeWeather.controllers', []),
     services: angular.module('SeeWeather.services', [])
-};
+}

@@ -5,27 +5,27 @@ app.controllers.controller('LocationFormController', function ($scope, $cordovaG
      */
     $scope.getNearbyCities = function () {
         // Get the geo position from the device
-        $scope.spinner = true;
-        $cordovaGeolocation.getCurrentPosition().then(function (position) {
+        $scope.spinner = true
+        $cordovaGeolocation.getCurrentPosition().then(position => {
             // Get the locations from openweathermap
-            OpenWeatherMap.findCitiesNearCoords(position.coords).then(function (cities) {
-                $scope.cities = cities;
-                $scope.spinner = false;
-            });
-        });
-    };
+            OpenWeatherMap.findCitiesNearCoords(position.coords).then(cities => {
+                $scope.cities = cities
+                $scope.spinner = false
+            })
+        })
+    }
 
     /**
      * List cities by search query on name
      * 
      * @param string name Search query
      */
-    $scope.getCitiesByName = function (name) {
-        $scope.spinner = true;
+    $scope.getCitiesByName = name => {
+        $scope.spinner = true
         // Get the locations from openweathermap
-        OpenWeatherMap.findCitiesWithName(name).then(function (cities) {
-            $scope.cities = cities;
-            $scope.spinner = false;
-        });
-    };
-});
+        OpenWeatherMap.findCitiesWithName(name).then(cities => {
+            $scope.cities = cities
+            $scope.spinner = false
+        })
+    }
+})
