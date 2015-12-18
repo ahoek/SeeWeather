@@ -9,7 +9,7 @@ angular.module('SeeWeather', [
 ])
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
-            console.log(navigator.language);
+            //console.log(navigator.language);
         });
     })
 
@@ -26,15 +26,15 @@ angular.module('SeeWeather', [
             .state('app.location', {
                 url: '/location',
                 views: {
-                    'menuContent': {
+                    menuContent: {
                         templateUrl: 'templates/location.html',
                         controller: 'LocationController'
                     },
-                    'menuLeft': {
+                    menuLeft: {
                         templateUrl: 'templates/locations.html',
                         controller: 'LocationsController'
                     },
-                    'menuRight': {
+                    menuRight: {
                         templateUrl: 'templates/settings.html',
                         controller: 'SettingsController'
                     }
@@ -48,9 +48,7 @@ angular.module('SeeWeather', [
             .setNotify(true, true);
     });
 
-var controllers = angular.module('SeeWeather.controllers', []);
-var services = angular.module('SeeWeather.services', []);
 var app = {
-    controllers: controllers,
-    services: services
+    controllers: angular.module('SeeWeather.controllers', []),
+    services: angular.module('SeeWeather.services', [])
 };

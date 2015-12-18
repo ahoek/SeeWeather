@@ -2,12 +2,12 @@
 Weather forecast for a location
 -->
 <ion-view>
-    <ion-spinner ng-class="{'spinning': spinner}" class="centered"></ion-spinner>
+    <ion-spinner ng-if="spinner" class="centered spinning"></ion-spinner>
     <ion-nav-title>{{location.name}}</ion-nav-title>
     <ion-content has-header="true" padding="false">
-        <ion-refresher
+<!--        <ion-refresher
             on-refresh="refreshWeather()">
-        </ion-refresher>
+        </ion-refresher>-->
         <!-- forecast -->
         <ion-list>
             <div ng-repeat-start="(day, weather) in forecastDays" class="item item-divider">
