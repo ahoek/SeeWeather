@@ -1,7 +1,7 @@
 /**
  * Locations service
  */
-services.service('Locations', function (
+app.services.service('Locations', function (
     localStorageService,
     $filter) {
     return {

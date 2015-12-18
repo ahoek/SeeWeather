@@ -1,7 +1,7 @@
 /**
  * OpenWeatherMap service
  */
-services.factory('OpenWeatherMap', function ($q, $http) {
+app.services.factory('OpenWeatherMap', function ($q, $http) {
     var openWeatherBaseUrl = "http://api.openweathermap.org/data/2.5";
     var appId = OPENWEATHERMAP_APPID;
 

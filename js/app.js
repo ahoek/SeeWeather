@@ -50,3 +50,7 @@ angular.module('SeeWeather', [
 
 var controllers = angular.module('SeeWeather.controllers', []);
 var services = angular.module('SeeWeather.services', []);
+var app = {
+    controllers: controllers,
+    services: services
+};

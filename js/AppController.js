@@ -1,7 +1,7 @@
 /**
  * App controller
  */
-controllers.controller('AppController', function ($scope, $ionicSideMenuDelegate) {
+app.controllers.controller('AppController', function ($scope, $ionicSideMenuDelegate) {
     $scope.toggleLeft = function () {
         $ionicSideMenuDelegate.toggleLeft();
     };

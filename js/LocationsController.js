@@ -1,5 +1,5 @@
 // Location overview
-controllers.controller('LocationsController', function ($scope, $state, Locations, $ionicModal, $ionicSideMenuDelegate, $cordovaGeolocation, OpenWeatherMap, localStorageService) {
+app.controllers.controller('LocationsController', function ($scope, $state, Locations, $ionicModal, $ionicSideMenuDelegate, $cordovaGeolocation, OpenWeatherMap, localStorageService) {
 
     $scope.locations = Locations.all();
 

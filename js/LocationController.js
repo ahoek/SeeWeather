@@ -19,7 +19,7 @@ var makeGroups = function (weatherList) {
 /**
  * Location forecast detail controller
  */ 
-controllers.controller('LocationController', function ($scope, Locations, OpenWeatherMap, $cordovaDeviceOrientation, localStorageService) {
+app.controllers.controller('LocationController', function ($scope, Locations, OpenWeatherMap, $cordovaDeviceOrientation, localStorageService) {
     $scope.spinner = false;
 
     // @todo settings helper/service

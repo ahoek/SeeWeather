@@ -6,6 +6,6 @@ platforms/ios/SeeWeather/Plugins
 platforms/android
 nbproject/
 www/npm-debug.log
-www/js/settings.js
+www/js
 www/lib
 www/css/*.css
