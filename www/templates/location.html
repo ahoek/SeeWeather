@@ -2,39 +2,47 @@
 Weather forecast for a location
 -->
 <ion-view>
-    <ion-spinner ng-if="spinner" class="centered spinning"></ion-spinner>
-    <ion-nav-title>{{location.name}}</ion-nav-title>
+    <ion-spinner ng-if="ctrl.spinner" class="centered spinning"></ion-spinner>
+    <ion-nav-title>{{ctrl.location.name}}</ion-nav-title>
     <ion-content has-header="true" padding="false">
 <!--        <ion-refresher
             on-refresh="refreshWeather()">
         </ion-refresher>-->
         <!-- forecast -->
         <ion-list>
-            <div ng-repeat-start="(day, weather) in forecastDays" class="item item-divider">
+            <div ng-repeat-start="(day, weather) in ctrl.forecastDays" class="item item-divider">
                 {{day|date:'fullDate'}}
             </div>
             <ion-item ng-repeat="item in weather" class="weather-item">
-                <span ng-if="settings.forecast.icon" class="weather-icon">
+                <span ng-if="ctrl.settings.forecast.icon" class="weather-icon">
                     <i class="w-base-{{item.weather[0].icon}}"></i>
                     <i class="w-{{item.weather[0].icon}}"></i>
                 </span>
 
-                <span ng-if="settings.forecast.temperature" class="temperature">
-                    <span>{{item.main.temp|temperature:settings.forecast.temperature| number:0}}</span><span class="unit">{{settings.forecast.temperature|unit}}
+                <span ng-if="ctrl.settings.forecast.temperature" class="temperature">
+                    <span>
+                        {{item.main.temp|temperature:ctrl.settings.forecast.temperature| number:0}}
+                    </span>
+                    <span class="unit">
+                        {{ctrl.settings.forecast.temperature|unit}}
                     </span>
                 </span>
-                <span ng-if="settings.forecast.windSpeedPrimary" class="windspeed-primary">
-                    <strong>{{item.wind.speed|windspeed:settings.forecast.windSpeedPrimary| number:1 }}</strong>
+                <span ng-if="ctrl.settings.forecast.windSpeedPrimary" class="windspeed-primary">
+                    <strong>
+                        {{item.wind.speed|windspeed:ctrl.settings.forecast.windSpeedPrimary| number:1 }}
+                    </strong>
                 </span>
-                <small ng-if="settings.forecast.windSpeedSecundary" class="windspeed-secundary">
-                    {{item.wind.speed|windspeed:settings.forecast.windSpeedSecundary| number:0 }}<span class="unit">{{settings.forecast.windSpeedSecundary|unit}}
+                <small ng-if="ctrl.settings.forecast.windSpeedSecundary" class="windspeed-secundary">
+                    {{item.wind.speed|windspeed:ctrl.settings.forecast.windSpeedSecundary| number:0 }}
+                    <span class="unit">
+                        {{ctrl.settings.forecast.windSpeedSecundary|unit}}
                     </span>
                 </small>
 
-                <i ng-if="settings.forecast.windDirection" class="ion-ios-arrow-thin-up wind-direction"
+                <i ng-if="ctrl.settings.forecast.windDirection" class="ion-ios-arrow-thin-up wind-direction"
                    style="-webkit-transform: rotate({{item.wind.deg + 180}}deg);"></i>
 
-                <i  ng-if="settings.forecast.windDirectionReal" class="ion-android-navigate wind-direction"
+                <i  ng-if="ctrl.settings.forecast.windDirectionReal" class="ion-android-navigate wind-direction"
                    style="-webkit-transform: rotate({{-1 * heading + item.wind.deg + 180}}deg);"></i>
                 {{item.wind.direction}}
                 <span class="item-note">

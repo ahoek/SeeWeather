@@ -3,52 +3,71 @@
  */
 class LocationController {
     constructor($scope, Locations, OpenWeatherMap, $cordovaDeviceOrientation, localStorageService) {
+        this.scope = $scope
+        this.locations = Locations,
+        this.weatherClient = OpenWeatherMap
+        this.deviceOrientation = $cordovaDeviceOrientation
+        this.localStorage = localStorageService
+        
+        this.spinner = false
 
-        $scope.spinner = false
+        this.initSettings()
 
-        // @todo settings helper/service
-        $scope.settings = localStorageService.get('settings')
-        $scope.$watch(
-            () => angular.toJson(localStorageService.get('settings')), 
-            () => { $scope.settings = localStorageService.get('settings') }
+        this.location = this.locations.getActiveLocation()
+        this.scope.$watch(
+            () => this.locations.activeLocation, 
+            this.activeLocationChanged()
         )
-
-        $scope.location = Locations.getActiveLocation()
-        $scope.$watch(
-            () => Locations.activeLocation, 
-            () => {
-                $scope.location = Locations.getActiveLocation()
-                $scope.spinner = true
-                OpenWeatherMap.getWeather($scope.location).then(weather => {
-                    $scope.forecastDays = this.makeGroups(weather.list)
-                    $scope.spinner = false
-                })
-            }
-        )
-
-        $scope.refreshWeather = () => {
-            OpenWeatherMap.getWeather($scope.location).then(weather => {
-                $scope.forecastDays = this.makeGroups(weather.list)
-
-                // Stop the ion-refresher from spinning
-                $scope.$broadcast('scroll.refreshComplete')
-            })
-        }
 
         // Get the compass heading
         // fix: only if phone is held horizontally
-        $scope.heading = null
+        this.heading = null
         document.addEventListener("deviceready", () => {
             var options = {
                 filter: true
             }
-            var watch = $cordovaDeviceOrientation.watchHeading(options).then(
+            var watch = this.deviceOrientation.watchHeading(options).then(
                 null,
                 () => { console.log('Error retrieving device orientation') },
-                result => { $scope.heading = result.magneticHeading }
+                result => { this.heading = result.magneticHeading }
             )
             //watch.clearWatch()
         }, false)
+    }
+    
+    /**
+     * Refresh the weather for the current location
+     */
+    refreshWeather() {
+        this.weatherClient.getWeather(this.location).then(weather => {
+            this.forecastDays = this.makeGroups(weather.list)
+
+            // Stop the ion-refresher from spinning
+            this.scope.$broadcast('scroll.refreshComplete')
+        })
+    }
+    
+    /**
+     * Return function to run if active location has changed
+     */
+    activeLocationChanged() {
+        return () => {
+            this.location = this.locations.getActiveLocation()
+            this.spinner = true
+            this.weatherClient.getWeather(this.location).then(weather => {
+                this.forecastDays = this.makeGroups(weather.list)
+                this.spinner = false
+            })
+        }        
+    }
+    
+    // @todo settings helper/service
+    initSettings() {
+        this.settings = this.localStorage.get('settings')
+        this.scope.$watch(
+            () => angular.toJson(this.localStorage.get('settings')), 
+            () => { this.settings = this.localStorage.get('settings') }
+        )        
     }
     
     // Group by day helper function

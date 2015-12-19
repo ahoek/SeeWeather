@@ -28,7 +28,7 @@ angular.module('SeeWeather', [
                 views: {
                     menuContent: {
                         templateUrl: 'templates/location.html',
-                        controller: 'LocationController'
+                        controller: 'LocationController as ctrl'
                     },
                     menuLeft: {
                         templateUrl: 'templates/locations.html',
