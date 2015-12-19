@@ -1,34 +1,34 @@
 /**
  * Locations service
  */
-app.services.service('Locations', (localStorageService, $filter) => {
-    activeLocation: null,
+
+class Locations {
+    constructor(localStorageService) {
+        this.localStorageService = localStorageService
+    }
     
     all() {
-        return localStorageService.get('locations') || []
-    },
-    
-    get(locationId) {
-        return $filter('filter')(this.all(), {id: locationId}, true)
-    },
-    
+        return this.localStorageService.get('locations') || []
+    }
+
     save(locations) {
-        localStorageService.set('locations', locations)
-    },
-    
+        this.localStorageService.set('locations', locations)
+    }
+
     getActiveLocation() {
         var location
         if (this.activeLocation) {
             location = this.activeLocation
         } else {
-            location = localStorageService.get('lastActiveLocation')
+            location = this.localStorageService.get('lastActiveLocation')
         }
         return location
-    },
-    
+    }
+
     setActiveLocation(location) {
         this.activeLocation = location
-        localStorageService.set('lastActiveLocation', this.activeLocation)
-    }
-})
+        this.localStorageService.set('lastActiveLocation', this.activeLocation)
+    }   
+}
 
+app.services.service('Locations', Locations);

@@ -1,6 +1,6 @@
 // Add settings
 // todo: move to settings service
-app.controllers.controller('SettingsController', function ($scope, localStorageService) {
+app.controllers.controller('SettingsController', ($scope, localStorageService) => {
     if (!localStorageService.get('settings')) {
         localStorageService.set('settings', {
             forecast: {

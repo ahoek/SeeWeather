@@ -61,11 +61,10 @@ app.controllers.controller('LocationsController', function ($scope, $state, Loca
     }
 
     $scope.settings = localStorageService.get('settings')
-    $scope.$watch(function () {
-        return angular.toJson(localStorageService.get('settings'))
-    }, function () {
-        $scope.settings = localStorageService.get('settings')
-    })
+    $scope.$watch(
+        () => angular.toJson(localStorageService.get('settings')), 
+        () => { $scope.settings = localStorageService.get('settings') }
+    )
 
     $cordovaGeolocation.getCurrentPosition().then(function (position) {
         // Get the location from openweathermap
